@@ -7,1063 +7,1096 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --ink:#0f0e0c; --paper:#f5f0e8; --cream:#ede8dc; --accent:#c8401a;
-  --gold:#c9963a; --muted:#8a8278; --rule:#d4cfc6; --deep:#1a3a5c;
-  --success:#2e7d32; --danger:#c62828;
+  --ink: #0f0e0c;
+  --paper: #f5f0e8;
+  --cream: #ede8dc;
+  --accent: #c8401a;
+  --gold: #c9963a;
+  --muted: #8a8278;
+  --rule: #d4cfc6;
+  --deep: #1a3a5c;
+  --success: #2e7d32;
+  --danger: #c62828;
 }
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;min-height:100vh;}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; font-size: 15px; line-height: 1.7; min-height: 100vh; }
 
-/* MASTHEAD */
-.masthead{background:var(--ink);color:var(--paper);text-align:center;padding:22px 40px 18px;}
-.masthead-eyebrow{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:5px;}
-.masthead-title{font-family:'Playfair Display',serif;font-size:clamp(30px,5vw,52px);font-weight:900;color:var(--paper);}
-.masthead-title span{color:var(--accent);}
-.masthead-sub{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#888;margin-top:6px;}
-.back-link{display:inline-block;margin-top:8px;font-family:'DM Mono',monospace;font-size:11px;color:#aaa;text-decoration:none;letter-spacing:.08em;transition:color .2s;}
-.back-link:hover{color:var(--gold);}
+/* ── HEADER ── */
+.header { background: var(--ink); color: var(--paper); text-align: center; padding: 20px 24px 16px; }
+.header-eye { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--gold); margin-bottom: 5px; }
+.header-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 5vw, 48px); font-weight: 900; color: var(--paper); }
+.header-title span { color: var(--accent); }
+.header-sub { font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: #888; margin-top: 5px; }
+.back-link { display: inline-block; margin-top: 8px; font-family: 'DM Mono', monospace; font-size: 11px; color: #aaa; text-decoration: none; }
+.back-link:hover { color: var(--gold); }
 
-/* NAV */
-.quiz-nav{background:var(--cream);border-bottom:2px solid var(--rule);display:flex;padding:0 20px;overflow-x:auto;scrollbar-width:none;}
-.quiz-nav-btn{padding:11px 18px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;background:none;border:none;border-bottom:3px solid transparent;color:var(--muted);transition:all .2s;white-space:nowrap;}
-.quiz-nav-btn:hover{color:var(--ink);}
-.quiz-nav-btn.active{color:var(--accent);border-bottom-color:var(--accent);}
+/* ── NAV ── */
+.top-nav { background: var(--cream); border-bottom: 2px solid var(--rule); display: flex; }
+.top-nav-btn { flex: 1; padding: 12px; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; background: none; border: none; border-bottom: 3px solid transparent; color: var(--muted); transition: all .2s; }
+.top-nav-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
 
-/* SCREENS */
-.screen{display:none;max-width:820px;margin:0 auto;padding:36px 22px;animation:fadeUp .3s ease;}
-.screen.active{display:block;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+/* ── SCREENS ── */
+.screen { display: none; max-width: 700px; margin: 0 auto; padding: 32px 20px; }
+.screen.active { display: block; }
 
-/* ── LOGIN ── */
-.login-card{background:#fff;border:1px solid var(--rule);border-top:5px solid var(--gold);padding:36px;}
-.login-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:5px;text-align:center;}
-.login-sub{color:var(--muted);font-size:13px;text-align:center;margin-bottom:28px;}
-.field-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px;}
-.member-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-bottom:22px;}
-.member-btn{padding:13px 8px;border:2px solid var(--rule);background:var(--cream);border-radius:4px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;color:var(--ink);transition:all .2s;text-align:center;}
-.member-btn:hover{border-color:var(--gold);}
-.member-btn.selected{border-color:var(--gold);background:var(--gold);color:#fff;}
-.m-avatar{font-size:20px;display:block;margin-bottom:3px;}
-.m-role{font-size:9px;font-weight:400;opacity:.8;display:block;}
-.pwd-section{background:var(--cream);border:1px solid var(--rule);border-radius:4px;padding:18px 22px;margin-bottom:18px;}
-.pwd-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;display:block;}
-.pwd-row{display:flex;gap:8px;align-items:center;}
-.pwd-input{flex:1;padding:11px 14px;border:2px solid var(--rule);background:#fff;font-family:'DM Sans',sans-serif;font-size:15px;border-radius:3px;outline:none;transition:border-color .2s;letter-spacing:.1em;}
-.pwd-input:focus{border-color:var(--deep);}
-.pwd-input.error{border-color:var(--danger);background:#fff5f5;}
-.pwd-toggle{padding:11px;background:none;border:2px solid var(--rule);border-radius:3px;cursor:pointer;font-size:15px;}
-.pwd-error{color:var(--danger);font-size:12px;margin-top:5px;font-family:'DM Mono',monospace;display:none;}
-.pwd-error.show{display:block;}
-.rules-box{background:#fff;border-left:4px solid var(--accent);padding:13px 16px;margin-bottom:18px;font-size:13px;}
-.rules-box strong{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:7px;}
-.rules-box ul{margin-left:15px;}
-.rules-box ul li{margin-bottom:3px;}
-.start-btn{width:100%;padding:15px;background:var(--accent);color:#fff;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;border-radius:3px;transition:background .2s;}
-.start-btn:hover{background:#a8330f;}
-.start-btn:disabled{background:var(--muted);cursor:not-allowed;}
+/* ── CARDS ── */
+.card { background: #fff; border: 1px solid var(--rule); padding: 28px; }
+.card-gold { border-top: 5px solid var(--gold); }
+.card-deep { border-top: 5px solid var(--deep); }
+.card-danger { border-top: 5px solid var(--danger); }
+.card-success { border-top: 5px solid var(--success); }
 
-/* ── QUIZ ── */
-.quiz-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:8px;}
-.quiz-meta{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);}
-.quiz-meta strong{color:var(--ink);}
-.progress-wrap{background:var(--cream);height:7px;border-radius:3px;margin-bottom:20px;}
-.progress-fill{height:7px;background:var(--deep);border-radius:3px;transition:width .4s;}
-.timer-circle{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:20px;font-weight:900;border:3px solid var(--deep);color:var(--deep);transition:all .4s;flex-shrink:0;}
-.timer-circle.warning{border-color:var(--gold);color:var(--gold);}
-.timer-circle.danger{border-color:var(--danger);color:var(--danger);animation:pulse .5s infinite;}
-@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
-.question-card{background:#fff;border:1px solid var(--rule);border-top:4px solid var(--deep);padding:26px;margin-bottom:14px;}
-.question-meta{display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap;}
-.q-num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--deep);}
-.q-sec-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:2px;font-weight:600;}
-.question-text{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;line-height:1.3;margin-bottom:18px;}
-.options-grid{display:grid;gap:8px;}
-.option-btn{padding:11px 14px;border:2px solid var(--rule);background:var(--cream);border-radius:3px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--ink);transition:all .15s;text-align:left;display:flex;align-items:center;gap:9px;}
-.option-btn:hover:not(:disabled){border-color:var(--deep);background:#eef2f8;}
-.option-btn:disabled{cursor:not-allowed;}
-.option-btn.correct{border-color:var(--success);background:#e8f5e9;color:var(--success);}
-.option-btn.wrong{border-color:var(--danger);background:#ffebee;color:var(--danger);}
-.option-btn.reveal{border-color:var(--success);background:#e8f5e9;}
-.opt-letter{display:inline-flex;width:23px;height:23px;border-radius:50%;background:var(--ink);color:#fff;font-size:10px;font-weight:700;align-items:center;justify-content:center;flex-shrink:0;font-family:'DM Mono',monospace;}
-.option-btn.correct .opt-letter{background:var(--success);}
-.option-btn.wrong .opt-letter{background:var(--danger);}
-.option-btn.reveal .opt-letter{background:var(--success);}
-.feedback-box{padding:11px 15px;border-radius:3px;margin-top:10px;font-size:13px;font-weight:500;display:none;line-height:1.5;}
-.feedback-box.show{display:block;}
-.fb-correct{background:#e8f5e9;border-left:4px solid var(--success);color:#1b5e20;}
-.fb-wrong{background:#ffebee;border-left:4px solid var(--danger);color:#b71c1c;}
-.fb-timeout{background:#fff8e1;border-left:4px solid var(--gold);color:#7c4d00;}
-.next-btn{padding:10px 24px;background:var(--deep);color:#fff;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;border-radius:3px;display:none;margin-top:10px;transition:background .2s;}
-.next-btn.show{display:inline-block;}
-.next-btn:hover{background:#0f2a45;}
+/* ── SETUP SCREEN ── */
+.setup-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; text-align: center; margin-bottom: 4px; }
+.setup-sub { color: var(--muted); font-size: 13px; text-align: center; margin-bottom: 24px; }
+.field-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 8px; }
+.member-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; margin-bottom: 20px; }
+.member-btn { padding: 12px 8px; border: 2px solid var(--rule); background: var(--cream); border-radius: 3px; cursor: pointer; font-size: 12px; font-weight: 600; color: var(--ink); transition: all .2s; text-align: center; font-family: 'DM Sans', sans-serif; }
+.member-btn:hover { border-color: var(--gold); }
+.member-btn.selected { border-color: var(--gold); background: var(--gold); color: #fff; }
+.m-av { font-size: 20px; display: block; margin-bottom: 3px; }
+.pwd-row { display: flex; gap: 8px; margin-bottom: 16px; }
+.pwd-inp { flex: 1; padding: 11px 13px; border: 2px solid var(--rule); background: #fff; font-size: 14px; border-radius: 3px; outline: none; letter-spacing: .1em; font-family: 'DM Sans', sans-serif; }
+.pwd-inp:focus { border-color: var(--deep); }
+.pwd-inp.err { border-color: var(--danger); }
+.pwd-tog { padding: 11px; background: none; border: 2px solid var(--rule); border-radius: 3px; cursor: pointer; font-size: 14px; }
+.err-msg { color: var(--danger); font-size: 12px; margin-top: -10px; margin-bottom: 14px; font-family: 'DM Mono', monospace; display: none; }
+.err-msg.show { display: block; }
+.rules-box { background: #fff3e0; border-left: 4px solid var(--accent); padding: 12px 15px; margin-bottom: 16px; font-size: 13px; }
+.rules-box strong { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 6px; }
+.rules-box ul { margin-left: 14px; }
+.rules-box ul li { margin-bottom: 3px; }
+.start-btn { width: 100%; padding: 14px; background: var(--accent); color: #fff; border: none; cursor: pointer; font-size: 15px; font-weight: 700; border-radius: 3px; transition: background .2s; font-family: 'DM Sans', sans-serif; }
+.start-btn:hover { background: #a8330f; }
+.start-btn:disabled { background: var(--muted); cursor: not-allowed; }
 
-/* ── RESULT ── */
-.result-card{background:#fff;border:1px solid var(--rule);border-top:5px solid var(--gold);padding:32px;text-align:center;margin-bottom:18px;}
-.result-eyebrow{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);}
-.result-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;margin:8px 0 14px;}
-.result-pct{font-family:'Playfair Display',serif;font-size:68px;font-weight:900;line-height:1;}
-.result-pct.excellent{color:var(--success);}
-.result-pct.good{color:var(--deep);}
-.result-pct.average{color:var(--gold);}
-.result-pct.poor{color:var(--danger);}
-.result-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:3px;}
-.result-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;margin:10px 0 4px;}
-.result-sub{color:var(--muted);font-size:13px;}
-.result-breakdown{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:18px 0;}
-.r-stat{background:var(--cream);padding:10px 6px;border-radius:3px;}
-.r-stat-num{font-family:'Playfair Display',serif;font-size:26px;font-weight:900;display:block;}
-.r-stat-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:2px;display:block;}
-.result-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:18px;}
-.action-btn{padding:10px 20px;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;border-radius:3px;transition:all .2s;text-decoration:none;display:inline-block;}
-.action-btn.primary{background:var(--accent);color:#fff;}
-.action-btn.primary:hover{background:#a8330f;}
-.action-btn.secondary{background:var(--cream);color:var(--ink);border:1px solid var(--rule);}
-.action-btn.secondary:hover{background:var(--rule);}
-.action-btn.deep-btn{background:var(--deep);color:#fff;}
-.action-btn.deep-btn:hover{background:#0f2a45;}
+/* ── ANTI-CHEAT OVERLAY ── */
+.ac-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,.9); z-index: 9999; align-items: center; justify-content: center; }
+.ac-overlay.show { display: flex; }
+.ac-box { background: #fff; border-top: 5px solid var(--danger); padding: 32px 28px; max-width: 400px; width: 90%; text-align: center; border-radius: 3px; }
+.ac-icon { font-size: 44px; margin-bottom: 10px; }
+.ac-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--danger); margin-bottom: 8px; }
+.ac-msg { font-size: 13px; color: #555; margin-bottom: 16px; line-height: 1.5; }
+.ac-count { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); margin-bottom: 16px; }
+.ac-btn { padding: 11px 24px; background: var(--deep); color: #fff; border: none; cursor: pointer; font-size: 13px; font-weight: 600; border-radius: 3px; font-family: 'DM Sans', sans-serif; }
 
-/* ── SECTION-WISE BREAKDOWN in result ── */
-.section-breakdown{background:#fff;border:1px solid var(--rule);border-top:3px solid var(--deep);padding:22px;margin-bottom:14px;}
-.sb-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;margin-bottom:16px;}
-.sb-row{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap;}
-.sb-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;width:140px;flex-shrink:0;}
-.sb-bar-wrap{flex:1;background:var(--cream);border-radius:3px;height:10px;min-width:80px;}
-.sb-bar{height:10px;border-radius:3px;transition:width .8s ease;}
-.sb-score{font-family:'DM Mono',monospace;font-size:11px;font-weight:700;width:50px;text-align:right;flex-shrink:0;}
+/* ── QUIZ SCREEN ── */
+.quiz-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; }
+.quiz-info { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); }
+.quiz-info strong { color: var(--ink); }
+.viol-badge { color: var(--danger); font-size: 11px; margin-left: 6px; }
+.progress-wrap { background: var(--cream); height: 6px; border-radius: 3px; margin-bottom: 20px; }
+.progress-fill { height: 6px; background: var(--deep); border-radius: 3px; transition: width .4s; }
+.timer { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 900; border: 3px solid var(--deep); color: var(--deep); flex-shrink: 0; transition: all .3s; }
+.timer.warn { border-color: var(--gold); color: var(--gold); }
+.timer.danger { border-color: var(--danger); color: var(--danger); animation: pulse .5s infinite; }
+@keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.1); } }
 
-/* ── MISSED QUESTIONS REVIEW ── */
-.missed-section{background:#fff;border:1px solid var(--rule);border-top:3px solid var(--danger);padding:22px;margin-bottom:14px;}
-.missed-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;margin-bottom:4px;}
-.missed-sub{color:var(--muted);font-size:12px;margin-bottom:18px;}
-.missed-item{border:1px solid var(--rule);border-radius:3px;margin-bottom:14px;overflow:hidden;}
-.missed-item-header{background:var(--cream);padding:10px 16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
-.missed-q-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);}
-.missed-sec-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;font-weight:600;}
-.missed-status{font-family:'DM Mono',monospace;font-size:10px;font-weight:700;margin-left:auto;}
-.missed-item-body{padding:14px 16px;}
-.missed-question{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;margin-bottom:10px;line-height:1.3;}
-.missed-your-ans{font-size:13px;color:var(--danger);margin-bottom:4px;}
-.missed-correct-ans{font-size:13px;color:var(--success);margin-bottom:8px;}
-.missed-exp{font-size:12px;color:#555;background:var(--cream);padding:8px 12px;border-radius:2px;line-height:1.5;}
+.q-card { background: #fff; border: 1px solid var(--rule); border-top: 4px solid var(--deep); padding: 24px; margin-bottom: 12px; user-select: none; -webkit-user-select: none; }
+.q-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+.q-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--deep); }
+.q-sec-tag { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: .1em; text-transform: uppercase; padding: 2px 7px; border-radius: 2px; font-weight: 600; }
+.q-text { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; line-height: 1.3; margin-bottom: 16px; }
+.opts { display: grid; gap: 7px; }
+.opt { padding: 11px 13px; border: 2px solid var(--rule); background: var(--cream); border-radius: 3px; cursor: pointer; font-size: 13px; font-weight: 500; color: var(--ink); text-align: left; display: flex; align-items: center; gap: 9px; transition: all .15s; user-select: none; -webkit-user-select: none; font-family: 'DM Sans', sans-serif; }
+.opt:hover:not(:disabled) { border-color: var(--deep); background: #eef2f8; }
+.opt:disabled { cursor: not-allowed; }
+.opt.correct { border-color: var(--success); background: #e8f5e9; color: var(--success); }
+.opt.wrong { border-color: var(--danger); background: #ffebee; color: var(--danger); }
+.opt.reveal { border-color: var(--success); background: #e8f5e9; }
+.opt-ltr { display: inline-flex; width: 22px; height: 22px; border-radius: 50%; background: var(--ink); color: #fff; font-size: 10px; font-weight: 700; align-items: center; justify-content: center; flex-shrink: 0; font-family: 'DM Mono', monospace; }
+.opt.correct .opt-ltr { background: var(--success); }
+.opt.wrong .opt-ltr { background: var(--danger); }
+.opt.reveal .opt-ltr { background: var(--success); }
+.feedback { padding: 10px 14px; border-radius: 3px; margin-top: 9px; font-size: 13px; display: none; line-height: 1.5; }
+.feedback.show { display: block; }
+.fb-correct { background: #e8f5e9; border-left: 4px solid var(--success); color: #1b5e20; }
+.fb-wrong { background: #ffebee; border-left: 4px solid var(--danger); color: #b71c1c; }
+.fb-timeout { background: #fff8e1; border-left: 4px solid var(--gold); color: #7c4d00; }
+.next-btn { padding: 10px 22px; background: var(--deep); color: #fff; border: none; cursor: pointer; font-size: 13px; font-weight: 600; border-radius: 3px; margin-top: 10px; display: none; font-family: 'DM Sans', sans-serif; }
+.next-btn.show { display: inline-block; }
 
-/* ── BADGES ── */
-.badges-section{background:#fff;border:1px solid var(--rule);border-top:3px solid var(--gold);padding:22px;margin-bottom:14px;}
-.badges-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;margin-bottom:14px;}
-.badges-grid{display:flex;flex-wrap:wrap;gap:10px;}
-.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:20px;font-family:'DM Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.05em;}
-.badge.earned{background:linear-gradient(135deg,#fff8e1,#fff3cd);border:1px solid var(--gold);color:#7c4d00;}
-.badge.locked{background:var(--cream);border:1px solid var(--rule);color:var(--muted);opacity:.6;}
-.badge-icon{font-size:18px;}
+/* ── RESULT SCREEN ── */
+.result-main { text-align: center; padding-bottom: 16px; margin-bottom: 16px; border-bottom: 1px solid var(--rule); }
+.res-pct { font-family: 'Playfair Display', serif; font-size: 64px; font-weight: 900; line-height: 1; }
+.res-pct.excellent { color: var(--success); }
+.res-pct.good { color: var(--deep); }
+.res-pct.average { color: var(--gold); }
+.res-pct.poor { color: var(--danger); }
+.res-lbl { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); margin-top: 3px; }
+.res-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; margin: 10px 0 4px; }
+.res-sub { color: var(--muted); font-size: 13px; margin-bottom: 16px; }
+.stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 14px 0; }
+.stat-box { background: var(--cream); padding: 10px; text-align: center; border-radius: 3px; }
+.stat-num { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 900; display: block; }
+.stat-lbl { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-top: 2px; display: block; }
+.sync-status { background: var(--cream); border: 1px solid var(--rule); border-radius: 3px; padding: 12px 16px; font-size: 13px; margin-bottom: 14px; font-family: 'DM Mono', monospace; letter-spacing: .05em; }
+.sync-status.syncing { border-color: var(--gold); background: #fff8e1; color: #7c4d00; }
+.sync-status.synced { border-color: var(--success); background: #e8f5e9; color: var(--success); }
+.sync-status.failed { border-color: var(--danger); background: #ffebee; color: var(--danger); }
+.res-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.rbtn { padding: 10px 18px; border: none; cursor: pointer; font-size: 13px; font-weight: 600; border-radius: 3px; text-decoration: none; display: inline-block; font-family: 'DM Sans', sans-serif; }
+.rbtn.primary { background: var(--accent); color: #fff; }
+.rbtn.sec { background: var(--cream); color: var(--ink); border: 1px solid var(--rule); }
 
-/* ── SCORECARD ── */
-.scorecard-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;flex-wrap:wrap;gap:10px;}
-.scorecard-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;}
-.admin-gate{background:#fff;border:1px solid var(--rule);border-left:5px solid var(--deep);padding:26px;margin-bottom:18px;}
-.admin-gate-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;margin-bottom:5px;}
-.admin-gate-sub{color:var(--muted);font-size:13px;margin-bottom:14px;}
-.admin-pwd-row{display:flex;gap:8px;flex-wrap:wrap;}
-.admin-pwd-input{flex:1;min-width:180px;padding:10px 13px;border:2px solid var(--rule);background:#fff;font-family:'DM Sans',sans-serif;font-size:14px;border-radius:3px;outline:none;}
-.admin-pwd-input:focus{border-color:var(--deep);}
-.admin-login-btn{padding:10px 20px;background:var(--deep);color:#fff;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;border-radius:3px;}
-.admin-error{color:var(--danger);font-size:12px;margin-top:5px;font-family:'DM Mono',monospace;display:none;}
-.admin-error.show{display:block;}
-.admin-logout-btn,.clear-btn{background:none;border:1px solid var(--rule);padding:6px 12px;cursor:pointer;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-radius:2px;transition:all .2s;}
-.admin-logout-btn:hover{border-color:var(--muted);color:var(--ink);}
-.clear-btn:hover{border-color:var(--danger);color:var(--danger);}
+/* Missed questions */
+.missed-title { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; margin: 20px 0 12px; padding-top: 16px; border-top: 2px solid var(--rule); }
+.missed-item { border: 1px solid var(--rule); border-radius: 3px; margin-bottom: 10px; overflow: hidden; }
+.mi-head { background: var(--cream); padding: 8px 12px; display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+.mi-num { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); }
+.mi-tag { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: .1em; text-transform: uppercase; padding: 2px 6px; border-radius: 2px; font-weight: 600; }
+.mi-type { font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 700; margin-left: auto; }
+.mi-body { padding: 12px 14px; }
+.mi-q { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; margin-bottom: 7px; }
+.mi-yours { font-size: 13px; color: var(--danger); margin-bottom: 3px; }
+.mi-right { font-size: 13px; color: var(--success); margin-bottom: 6px; }
+.mi-exp { font-size: 12px; color: #555; background: var(--cream); padding: 7px 10px; border-radius: 2px; line-height: 1.5; }
 
-/* WEEK TABS */
-.week-tabs{display:flex;overflow-x:auto;scrollbar-width:none;border:1px solid var(--rule);border-radius:3px;overflow:hidden;margin-bottom:22px;background:var(--cream);}
-.week-tab{padding:9px 18px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;background:none;border:none;border-right:1px solid var(--rule);color:var(--muted);transition:all .2s;white-space:nowrap;}
-.week-tab:last-child{border-right:none;}
-.week-tab:hover{background:#e0dbd0;color:var(--ink);}
-.week-tab.active{background:var(--ink);color:var(--gold);}
+/* ── SCOREBOARD ── */
+.admin-card { background: #fff; border: 1px solid var(--rule); border-left: 5px solid var(--deep); padding: 24px; margin-bottom: 16px; }
+.admin-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+.admin-sub { color: var(--muted); font-size: 13px; margin-bottom: 14px; }
+.admin-row { display: flex; gap: 8px; }
+.admin-inp { flex: 1; padding: 10px 13px; border: 2px solid var(--rule); background: #fff; font-size: 14px; border-radius: 3px; outline: none; font-family: 'DM Sans', sans-serif; }
+.admin-inp:focus { border-color: var(--deep); }
+.admin-btn { padding: 10px 18px; background: var(--deep); color: #fff; border: none; cursor: pointer; font-size: 13px; font-weight: 600; border-radius: 3px; font-family: 'DM Sans', sans-serif; }
+.admin-err { color: var(--danger); font-size: 12px; margin-top: 5px; font-family: 'DM Mono', monospace; display: none; }
+.admin-err.show { display: block; }
 
-/* COMPLETION TRACKER */
-.completion-tracker{background:#fff;border:1px solid var(--rule);border-top:4px solid var(--deep);padding:20px;margin-bottom:20px;}
-.ct-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;margin-bottom:14px;}
-.ct-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;}
-.ct-card{padding:14px;border:1px solid var(--rule);border-radius:3px;text-align:center;}
-.ct-card.done{border-color:var(--success);background:#e8f5e9;}
-.ct-card.pending{border-color:var(--rule);background:var(--cream);}
-.ct-avatar{font-size:22px;display:block;margin-bottom:4px;}
-.ct-name{font-size:12px;font-weight:600;margin-bottom:6px;}
-.ct-status{font-family:'DM Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.08em;}
-.ct-card.done .ct-status{color:var(--success);}
-.ct-card.pending .ct-status{color:var(--muted);}
-.ct-score-small{font-size:11px;color:var(--muted);margin-top:3px;}
+/* Week selector */
+.week-tabs { display: flex; overflow-x: auto; scrollbar-width: none; border: 1px solid var(--rule); border-radius: 3px; background: var(--cream); margin-bottom: 18px; }
+.week-tab { padding: 9px 16px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; background: none; border: none; border-right: 1px solid var(--rule); color: var(--muted); white-space: nowrap; transition: all .2s; }
+.week-tab:last-child { border-right: none; }
+.week-tab:hover { background: #e0dbd0; color: var(--ink); }
+.week-tab.active { background: var(--ink); color: var(--gold); }
 
-/* MEMBER SUMMARY CARDS */
-.member-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:12px;margin-bottom:22px;}
-.member-card{background:#fff;border:1px solid var(--rule);border-top:4px solid var(--gold);padding:16px;text-align:center;}
-.mc-avatar{font-size:24px;margin-bottom:4px;}
-.mc-name{font-weight:700;font-size:12px;margin-bottom:6px;}
-.mc-score{font-family:'Playfair Display',serif;font-size:26px;font-weight:900;display:block;}
-.mc-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:2px;}
-.mc-attempts{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);margin-top:5px;}
+/* Completion tracker */
+.completion-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; margin-bottom: 18px; }
+.comp-item { padding: 12px 8px; border: 1px solid var(--rule); border-radius: 3px; text-align: center; background: #fff; }
+.comp-item.done { border-color: var(--success); background: #e8f5e9; }
+.comp-av { font-size: 20px; display: block; margin-bottom: 3px; }
+.comp-name { font-size: 11px; font-weight: 700; margin-bottom: 4px; display: block; }
+.comp-status { font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 700; }
+.comp-item.done .comp-status { color: var(--success); }
+.comp-item .comp-status { color: var(--muted); }
+.comp-score { font-size: 11px; color: var(--muted); margin-top: 2px; display: block; }
 
-/* PROGRESS CHART (week over week) */
-.progress-section{background:#fff;border:1px solid var(--rule);border-top:4px solid var(--deep);padding:20px;margin-bottom:20px;}
-.ps-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;margin-bottom:6px;}
-.ps-sub{font-size:12px;color:var(--muted);margin-bottom:18px;}
-.progress-member-select{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
-.pm-btn{padding:6px 12px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;border:1px solid var(--rule);background:var(--cream);border-radius:2px;cursor:pointer;transition:all .2s;}
-.pm-btn.active{background:var(--deep);color:#fff;border-color:var(--deep);}
-.chart-wrap{overflow-x:auto;}
-.chart-bars{display:flex;align-items:flex-end;gap:10px;height:120px;padding-bottom:22px;position:relative;border-bottom:2px solid var(--rule);min-width:200px;}
-.chart-bar-col{display:flex;flex-direction:column;align-items:center;flex:1;min-width:40px;}
-.chart-bar{width:100%;border-radius:3px 3px 0 0;transition:height .6s ease;position:relative;min-height:4px;}
-.chart-bar-label{font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);margin-top:5px;text-align:center;white-space:nowrap;}
-.chart-bar-val{font-family:'DM Mono',monospace;font-size:10px;font-weight:700;position:absolute;top:-18px;left:50%;transform:translateX(-50%);white-space:nowrap;}
-.chart-no-data{text-align:center;padding:30px;color:var(--muted);font-style:italic;font-size:13px;}
+/* Ranking table */
+.rank-table { width: 100%; border-collapse: collapse; background: #fff; margin-bottom: 16px; font-size: 13px; }
+.rank-table th { background: var(--ink); color: var(--paper); padding: 9px 12px; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: .1em; text-transform: uppercase; text-align: left; }
+.rank-table td { padding: 9px 12px; border-bottom: 1px solid var(--rule); }
+.rank-table tr:hover td { background: var(--cream); }
+.rank-badge { display: inline-block; width: 24px; height: 24px; border-radius: 50%; text-align: center; line-height: 24px; font-size: 12px; font-weight: 700; font-family: 'DM Mono', monospace; }
+.r1 { background: var(--gold); color: #fff; }
+.r2 { background: #aaa; color: #fff; }
+.r3 { background: #c8784a; color: #fff; }
+.rn { background: var(--cream); color: var(--muted); }
+.score-pill { display: inline-block; padding: 2px 8px; border-radius: 10px; font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 700; }
+.sp-e { background: #e8f5e9; color: var(--success); }
+.sp-g { background: #e3f2fd; color: var(--deep); }
+.sp-a { background: #fff8e1; color: #b35f00; }
+.sp-p { background: #ffebee; color: var(--danger); }
+.no-data { text-align: center; padding: 28px; color: var(--muted); font-style: italic; }
+.sc-hdr { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; margin: 18px 0 10px; padding-bottom: 7px; border-bottom: 2px solid var(--rule); }
+.logout-btn { background: none; border: 1px solid var(--rule); padding: 5px 11px; cursor: pointer; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); border-radius: 2px; float: right; }
+.logout-btn:hover { border-color: var(--danger); color: var(--danger); }
+.refresh-btn { background: var(--deep); color: #fff; border: none; padding: 6px 14px; cursor: pointer; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .07em; border-radius: 2px; margin-right: 8px; }
 
-/* SECTION-WISE TABLE in scorecard */
-.section-breakdown-sc{background:#fff;border:1px solid var(--rule);border-top:3px solid var(--deep);padding:20px;margin-bottom:20px;}
-.sb-sc-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;margin-bottom:14px;}
-.sb-sc-table{width:100%;border-collapse:collapse;font-size:13px;}
-.sb-sc-table th{background:var(--ink);color:var(--paper);padding:9px 12px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;text-align:left;}
-.sb-sc-table td{padding:9px 12px;border-bottom:1px solid var(--rule);}
-.sb-sc-table tr:hover td{background:var(--cream);}
-.mini-bar-wrap{background:var(--cream);border-radius:2px;height:7px;width:80px;display:inline-block;vertical-align:middle;margin-right:6px;}
-.mini-bar{height:7px;border-radius:2px;}
+/* Setup notice */
+.setup-notice { background: #e3f2fd; border: 1px solid #90caf9; border-left: 4px solid var(--deep); padding: 14px 16px; margin-bottom: 16px; font-size: 13px; line-height: 1.6; }
+.setup-notice strong { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--deep); display: block; margin-bottom: 6px; }
 
-/* SCORE TABLE */
-.score-table{width:100%;border-collapse:collapse;background:#fff;margin-bottom:18px;font-size:13px;}
-.score-table th{background:var(--ink);color:var(--paper);padding:9px 12px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;text-align:left;}
-.score-table td{padding:9px 12px;border-bottom:1px solid var(--rule);}
-.score-table tr:hover td{background:var(--cream);}
-.score-pill{display:inline-block;padding:2px 9px;border-radius:10px;font-family:'DM Mono',monospace;font-size:10px;font-weight:700;}
-.sp-excellent{background:#e8f5e9;color:var(--success);}
-.sp-good{background:#e3f2fd;color:var(--deep);}
-.sp-average{background:#fff8e1;color:#b35f00;}
-.sp-poor{background:#ffebee;color:var(--danger);}
-.no-data{text-align:center;padding:36px;color:var(--muted);font-style:italic;}
+.page-footer { background: var(--ink); color: #888; text-align: center; padding: 16px 24px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .08em; border-top: 3px double var(--gold); margin-top: 40px; }
+.page-footer strong { color: var(--paper); }
 
-.sc-section-header{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;margin:22px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--rule);}
-
-/* BADGES in scorecard */
-.member-badges-sc{display:flex;flex-wrap:wrap;gap:5px;margin-top:5px;}
-.badge-sm{font-size:13px;title-attr:'';}
-
-.page-footer{background:var(--ink);color:#888;text-align:center;padding:18px 40px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.08em;border-top:3px double var(--gold);margin-top:40px;}
-.page-footer strong{color:var(--paper);}
-
-@media(max-width:600px){
-  .screen{padding:18px 12px;}
-  .result-breakdown{grid-template-columns:repeat(2,1fr);}
-  .member-grid{grid-template-columns:repeat(2,1fr);}
-  .admin-pwd-row{flex-direction:column;}
-  .sb-label{width:90px;}
+@media (max-width: 500px) {
+  .screen { padding: 18px 12px; }
+  .stats-row { grid-template-columns: repeat(3, 1fr); }
+  .member-grid { grid-template-columns: repeat(2, 1fr); }
+  .admin-row { flex-direction: column; }
 }
 </style>
 </head>
 <body>
 
-<header class="masthead">
-  <div class="masthead-eyebrow">Weekly Knowledge Assessment</div>
-  <div class="masthead-title">Team<span>Pulse</span> Quiz</div>
-  <div class="masthead-sub">Test · Score · Track · Grow · Every Week</div>
-  <a href="index.html" class="back-link">← Back to Knowledge Hub</a>
+<!-- ANTI-CHEAT OVERLAY -->
+<div class="ac-overlay" id="ac-overlay">
+  <div class="ac-box">
+    <div class="ac-icon">⚠️</div>
+    <div class="ac-title">Stay on the Quiz!</div>
+    <div class="ac-msg" id="ac-msg">You switched away from the quiz window. This has been recorded. Answer questions honestly without external help.</div>
+    <div class="ac-count" id="ac-count"></div>
+    <button class="ac-btn" onclick="resumeQuiz()">I Understand — Continue</button>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-eye">Weekly Knowledge Assessment</div>
+  <div class="header-title">Team<span>Pulse</span> Quiz</div>
+  <div class="header-sub">Test · Score · Track · Every Week</div>
+  <a href="index.html" class="back-link">← Knowledge Hub</a>
 </header>
 
-<nav class="quiz-nav">
-  <button class="quiz-nav-btn active" id="nav-quiz" onclick="showNav('login')">📝 Weekly Quiz</button>
-  <button class="quiz-nav-btn" id="nav-score" onclick="showNav('scorecard')">🏆 Scoreboard</button>
+<nav class="top-nav">
+  <button class="top-nav-btn active" id="nav-quiz" onclick="goTo('setup')">📝 Take Quiz</button>
+  <button class="top-nav-btn" id="nav-board" onclick="goTo('scoreboard')">🏆 Scoreboard</button>
 </nav>
 
-<!-- ══ LOGIN ══ -->
-<div class="screen active" id="screen-login">
-  <div class="login-card">
-    <div class="login-title">Welcome to TeamPulse Quiz</div>
-    <div class="login-sub">Select your name and enter your password to begin this week's assessment</div>
+<!-- ══ SETUP SCREEN ══ -->
+<div class="screen active" id="screen-setup">
+  <div class="card card-gold">
+    <div class="setup-title">TeamPulse Weekly Quiz</div>
+    <div class="setup-sub">Select your name and enter your password to begin</div>
+
+    <!-- One-time setup notice -->
+    <div class="setup-notice" id="setup-notice" style="display:none;">
+      <strong>⚙️ First-Time Setup Required</strong>
+      The quiz uses Google Sheets to store scores centrally. Please scroll to the bottom of this page for the one-time setup guide before the first use.
+    </div>
+
     <span class="field-label">👤 Select Your Name</span>
     <div class="member-grid" id="member-grid"></div>
-    <div class="pwd-section" id="pwd-section" style="display:none;">
-      <span class="pwd-title">🔐 Enter Your Password</span>
+
+    <div id="pwd-section" style="display:none;">
+      <span class="field-label">🔐 Password</span>
       <div class="pwd-row">
-        <input class="pwd-input" type="password" id="pwd-input" placeholder="Enter your password" onkeydown="if(event.key==='Enter')attemptLogin()" oninput="clearPwdError()">
-        <button class="pwd-toggle" onclick="togglePwd()">👁️</button>
+        <input class="pwd-inp" type="password" id="pwd-inp" placeholder="Enter your password"
+          onkeydown="if(event.key==='Enter') attemptStart()"
+          oninput="document.getElementById('pwd-error').classList.remove('show'); this.classList.remove('err')">
+        <button class="pwd-tog" onclick="togglePwd()">👁️</button>
       </div>
-      <div class="pwd-error" id="pwd-error">❌ Incorrect password. Please try again.</div>
+      <div class="err-msg" id="pwd-error">❌ Incorrect password. Please try again.</div>
     </div>
+
     <div class="rules-box">
       <strong>⚡ Quiz Rules</strong>
       <ul>
-        <li><strong>25 questions</strong> — 7 from Procurement, 7 Logistics, 7 Store, 2 Behaviour, 2 AI</li>
-        <li>Each question: <strong>30 seconds only</strong> — timer starts immediately</li>
-        <li>No re-attempts — once answered or timed out, it is final</li>
-        <li>Missed questions reviewed in detail after the quiz</li>
-        <li>Scores, badges & progress saved to the team scoreboard</li>
+        <li><strong>25 questions</strong> — 7 Procurement, 7 Logistics, 7 Store, 2 Behaviour, 2 AI</li>
+        <li>Each question: <strong>30 seconds</strong> — timer starts immediately</li>
+        <li>No re-attempts once answered or timed out</li>
+        <li>Switching tabs or windows is monitored and recorded</li>
+        <li>Score saved to central database automatically on completion</li>
       </ul>
     </div>
-    <button class="start-btn" id="start-btn" onclick="attemptLogin()" disabled>Select your name to continue</button>
+    <button class="start-btn" id="start-btn" onclick="attemptStart()" disabled>Select your name to begin</button>
   </div>
 </div>
 
-<!-- ══ QUIZ ══ -->
+<!-- ══ QUIZ SCREEN ══ -->
 <div class="screen" id="screen-quiz">
-  <div class="quiz-header">
-    <div class="quiz-meta">
-      <strong id="quiz-member-name">—</strong> &nbsp;·&nbsp;
-      Q <strong id="q-current">1</strong> of <strong id="q-total">25</strong>
-      &nbsp;·&nbsp; <span id="quiz-sec-indicator" style="font-weight:600;"></span>
+  <div class="quiz-top">
+    <div class="quiz-info">
+      <strong id="qz-name">—</strong> &nbsp;·&nbsp;
+      Q <strong id="qz-cur">1</strong>/<strong id="qz-tot">25</strong>
+      <span class="viol-badge" id="viol-badge" style="display:none;">⚠️ Violations: <span id="viol-cnt">0</span></span>
     </div>
-    <div class="timer-circle" id="timer-display">30</div>
+    <div class="timer" id="timer">30</div>
   </div>
-  <div class="progress-wrap"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
-  <div class="question-card">
-    <div class="question-meta">
-      <span class="q-num" id="q-num-label">Question 1 of 25</span>
-      <span class="q-sec-tag" id="q-sec-tag"></span>
+  <div class="progress-wrap">
+    <div class="progress-fill" id="prog-fill" style="width:0%"></div>
+  </div>
+  <div class="q-card">
+    <div class="q-meta">
+      <span class="q-label" id="q-lbl">Question 1 of 25</span>
+      <span class="q-sec-tag" id="q-tag"></span>
     </div>
-    <div class="question-text" id="question-text">Loading...</div>
-    <div class="options-grid" id="options-grid"></div>
-    <div class="feedback-box" id="feedback-box"></div>
+    <div class="q-text" id="q-text">—</div>
+    <div class="opts" id="opts"></div>
+    <div class="feedback" id="feedback"></div>
   </div>
-  <button class="next-btn" id="next-btn" onclick="nextQuestion()">Next Question →</button>
+  <button class="next-btn" id="next-btn" onclick="nextQ()">Next →</button>
 </div>
 
-<!-- ══ RESULT ══ -->
+<!-- ══ RESULT SCREEN ══ -->
 <div class="screen" id="screen-result">
-  <div class="result-card">
-    <div class="result-eyebrow">Quiz Complete · Edition 001</div>
-    <div class="result-name" id="result-name"></div>
-    <div class="result-pct" id="result-pct">—</div>
-    <div class="result-label">Your Score This Week</div>
-    <div class="result-title" id="result-title">—</div>
-    <div class="result-sub" id="result-sub">—</div>
-    <div class="result-breakdown">
-      <div class="r-stat"><span class="r-stat-num" id="r-correct" style="color:var(--success)">0</span><span class="r-stat-label">✅ Correct</span></div>
-      <div class="r-stat"><span class="r-stat-num" id="r-wrong" style="color:var(--danger)">0</span><span class="r-stat-label">❌ Wrong</span></div>
-      <div class="r-stat"><span class="r-stat-num" id="r-timeout" style="color:#b35f00">0</span><span class="r-stat-label">⏰ Timeout</span></div>
-      <div class="r-stat"><span class="r-stat-num" id="r-total" style="color:var(--deep)">25</span><span class="r-stat-label">📋 Total</span></div>
+  <div class="card card-gold">
+    <div class="result-main">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);">Quiz Complete</div>
+      <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;margin:6px 0 12px;" id="res-name"></div>
+      <div class="res-pct" id="res-pct">—</div>
+      <div class="res-lbl">Your Score</div>
+      <div class="res-title" id="res-title">—</div>
+      <div class="res-sub" id="res-sub">—</div>
+      <div class="stats-row">
+        <div class="stat-box"><span class="stat-num" id="r-correct" style="color:var(--success)">0</span><span class="stat-lbl">✅ Correct</span></div>
+        <div class="stat-box"><span class="stat-num" id="r-wrong" style="color:var(--danger)">0</span><span class="stat-lbl">❌ Wrong</span></div>
+        <div class="stat-box"><span class="stat-num" id="r-timeout" style="color:#b35f00">0</span><span class="stat-lbl">⏰ Timeout</span></div>
+      </div>
     </div>
-    <div class="result-actions">
-      <button class="action-btn deep-btn" onclick="scrollToReview()">📝 Review Missed Questions</button>
-      <button class="action-btn primary" onclick="showNav('scorecard')">🏆 Scoreboard</button>
-      <a href="index.html" class="action-btn secondary">📚 Back to Hub</a>
+    <div class="sync-status" id="sync-status">⏳ Saving your score...</div>
+    <div class="res-actions">
+      <button class="rbtn primary" onclick="goTo('scoreboard')">🏆 View Scoreboard</button>
+      <a href="index.html" class="rbtn sec">📚 Knowledge Hub</a>
     </div>
-  </div>
-
-  <!-- 2. SECTION-WISE BREAKDOWN -->
-  <div class="section-breakdown" id="section-breakdown-result">
-    <div class="sb-title">🎯 Your Performance by Section</div>
-    <div id="sb-rows"></div>
-  </div>
-
-  <!-- 3. BADGES EARNED -->
-  <div class="badges-section" id="badges-result">
-    <div class="badges-title">🏅 Badges This Week</div>
-    <div class="badges-grid" id="badges-grid-result"></div>
-  </div>
-
-  <!-- 3. MISSED QUESTIONS REVIEW -->
-  <div class="missed-section" id="missed-section">
-    <div class="missed-title">📝 Missed Questions Review</div>
-    <div class="missed-sub">Every question you got wrong or timed out on — with the correct answer and full explanation.</div>
-    <div id="missed-items"></div>
+    <div id="missed-section"></div>
   </div>
 </div>
 
-<!-- ══ SCORECARD ══ -->
-<div class="screen" id="screen-scorecard">
-
-  <!-- Admin Gate -->
-  <div id="admin-gate">
-    <div class="admin-gate">
-      <div class="admin-gate-title">🔒 Admin Access Required</div>
-      <div class="admin-gate-sub">The full scoreboard is for admin view only. Enter your admin password to unlock all results, progress charts, and team analytics.</div>
-      <div class="admin-pwd-row">
-        <input class="admin-pwd-input" type="password" id="admin-pwd" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')adminLogin()">
-        <button class="admin-login-btn" onclick="adminLogin()">Unlock →</button>
+<!-- ══ SCOREBOARD SCREEN ══ -->
+<div class="screen" id="screen-scoreboard">
+  <!-- Admin login -->
+  <div id="admin-login-wrap">
+    <div class="admin-card">
+      <div class="admin-title">🔒 Admin Access</div>
+      <div class="admin-sub">Enter admin password to view all team scores and rankings.</div>
+      <div class="admin-row">
+        <input class="admin-inp" type="password" id="admin-pwd" placeholder="Admin password"
+          onkeydown="if(event.key==='Enter') adminLogin()">
+        <button class="admin-btn" onclick="adminLogin()">Unlock →</button>
       </div>
-      <div class="admin-error" id="admin-error">❌ Incorrect admin password.</div>
+      <div class="admin-err" id="admin-err">❌ Incorrect password.</div>
     </div>
   </div>
 
-  <!-- Scorecard Content -->
-  <div id="scorecard-content" style="display:none;">
-    <div class="scorecard-top">
-      <div class="scorecard-title">🏆 Team Scoreboard</div>
-      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
-        <button class="admin-logout-btn" onclick="adminLogout()">Logout</button>
-        <button class="clear-btn" onclick="clearScores()">Clear All</button>
+  <!-- Scoreboard content -->
+  <div id="sc-content" style="display:none;">
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; flex-wrap:wrap; gap:8px;">
+      <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;">🏆 Team Scoreboard</div>
+      <div>
+        <button class="refresh-btn" onclick="loadScoreboard()">↻ Refresh</button>
+        <button class="logout-btn" onclick="adminLogout()">Logout</button>
       </div>
     </div>
 
-    <!-- Week Tabs -->
-    <div class="week-tabs" id="week-tabs"></div>
-
-    <!-- 4. COMPLETION TRACKER -->
-    <div class="completion-tracker">
-      <div class="ct-title">📅 Completion Tracker — <span id="ct-week-label">—</span></div>
-      <div class="ct-grid" id="ct-grid"></div>
+    <!-- Week tabs -->
+    <div class="week-tabs" id="week-tabs">
+      <div style="padding:9px 16px;font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);">Loading...</div>
     </div>
 
-    <!-- Member Summary -->
-    <div class="sc-section-header">📊 Member Scores — <span id="sc-week-label">—</span></div>
-    <div class="member-cards" id="member-cards"></div>
+    <!-- Completion tracker -->
+    <div class="sc-hdr">📅 Completion Tracker</div>
+    <div class="completion-grid" id="comp-grid"></div>
 
-    <!-- 1. LEARNING PROGRESS TRACKER -->
-    <div class="progress-section">
-      <div class="ps-title">📈 Learning Progress Tracker</div>
-      <div class="ps-sub">Select a team member to view their week-over-week score progression.</div>
-      <div class="progress-member-select" id="progress-member-select"></div>
-      <div class="chart-wrap"><div class="chart-bars" id="chart-bars"></div></div>
-    </div>
-
-    <!-- 5. SECTION-WISE BREAKDOWN in scorecard -->
-    <div class="section-breakdown-sc">
-      <div class="sb-sc-title">🎯 Section-wise Performance Breakdown — <span id="sb-sc-week-label">—</span></div>
-      <table class="sb-sc-table">
-        <thead>
-          <tr>
-            <th>Member</th>
-            <th>Procurement</th>
-            <th>Logistics</th>
-            <th>Store</th>
-            <th>Behaviour</th>
-            <th>AI & Trends</th>
-            <th>Overall</th>
-          </tr>
-        </thead>
-        <tbody id="sb-sc-tbody"></tbody>
-      </table>
-    </div>
-
-    <!-- BADGES in scorecard -->
-    <div class="sc-section-header">🏅 Team Badges Earned</div>
-    <div id="scorecard-badges" style="margin-bottom:22px;"></div>
-
-    <!-- Detailed log -->
-    <div class="sc-section-header">📋 Detailed Attempt Log</div>
-    <table class="score-table">
+    <!-- Ranking -->
+    <div class="sc-hdr">🥇 Rankings — <span id="sc-week-lbl">—</span></div>
+    <table class="rank-table">
       <thead>
-        <tr><th>#</th><th>Member</th><th>Score</th><th>Correct</th><th>Wrong</th><th>Timeout</th><th>Date & Time</th></tr>
+        <tr>
+          <th>Rank</th><th>Member</th><th>Score</th>
+          <th>Correct</th><th>Wrong</th><th>Timeout</th><th>Violations</th><th>Submitted</th>
+        </tr>
       </thead>
-      <tbody id="score-tbody"></tbody>
+      <tbody id="rank-tbody"></tbody>
     </table>
   </div>
 </div>
 
+<!-- SETUP GUIDE (bottom of page) -->
+<div id="setup-guide" style="max-width:700px;margin:0 auto;padding:0 20px 40px;">
+  <div class="card card-deep" style="margin-top:24px;">
+    <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;margin-bottom:6px;">⚙️ One-Time Setup Guide</div>
+    <div style="font-size:13px;color:var(--muted);margin-bottom:16px;">Complete this once to enable centralized multi-user score storage. Takes 10 minutes.</div>
+
+    <div style="background:var(--cream);border-left:4px solid var(--deep);padding:14px 16px;font-size:13px;line-height:1.7;margin-bottom:14px;">
+      <strong style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--deep);display:block;margin-bottom:8px;">Step 1 — Create Google Sheet</strong>
+      1. Go to <strong>sheets.google.com</strong> → Create a new blank spreadsheet<br>
+      2. Name it: <strong>TeamPulse Scores</strong><br>
+      3. In Row 1, add these exact column headers (A to J):<br>
+      <code style="background:#fff;padding:4px 8px;border-radius:2px;display:block;margin:8px 0;font-size:12px;">Timestamp | Week | Edition | Member | Score | Correct | Wrong | Timeout | Violations | SectionScores</code>
+    </div>
+
+    <div style="background:var(--cream);border-left:4px solid var(--deep);padding:14px 16px;font-size:13px;line-height:1.7;margin-bottom:14px;">
+      <strong style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--deep);display:block;margin-bottom:8px;">Step 2 — Create Apps Script</strong>
+      1. In your Google Sheet, click <strong>Extensions → Apps Script</strong><br>
+      2. Delete all existing code and paste the code below:<br>
+      <pre style="background:#1e1c19;color:#e8e8e8;padding:12px;border-radius:3px;font-size:11px;overflow-x:auto;margin-top:8px;line-height:1.6;">
+function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var data = JSON.parse(e.postData.contents);
+  sheet.appendRow([
+    new Date().toLocaleString('en-IN'),
+    data.week, data.edition, data.member,
+    data.score, data.correct, data.wrong,
+    data.timeout, data.violations,
+    JSON.stringify(data.sectionScores || {})
+  ]);
+  return ContentService
+    .createTextOutput(JSON.stringify({status:'ok'}))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+function doGet(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var data = sheet.getDataRange().getValues();
+  var headers = data[0];
+  var rows = data.slice(1).map(function(row) {
+    var obj = {};
+    headers.forEach(function(h, i) { obj[h] = row[i]; });
+    return obj;
+  });
+  return ContentService
+    .createTextOutput(JSON.stringify({data: rows}))
+    .setMimeType(ContentService.MimeType.JSON);
+}</pre>
+      3. Click <strong>Save</strong> (Ctrl+S)
+    </div>
+
+    <div style="background:var(--cream);border-left:4px solid var(--deep);padding:14px 16px;font-size:13px;line-height:1.7;margin-bottom:14px;">
+      <strong style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--deep);display:block;margin-bottom:8px;">Step 3 — Deploy as Web App</strong>
+      1. Click <strong>Deploy → New deployment</strong><br>
+      2. Click gear icon next to "Select type" → choose <strong>Web app</strong><br>
+      3. Set: <strong>Execute as: Me</strong><br>
+      4. Set: <strong>Who has access: Anyone</strong><br>
+      5. Click <strong>Deploy</strong> → Authorise when prompted<br>
+      6. Copy the <strong>Web app URL</strong> — it looks like:<br>
+      <code style="background:#fff;padding:4px 8px;border-radius:2px;display:block;margin:6px 0;font-size:11px;word-break:break-all;">https://script.google.com/macros/s/XXXXXXXXXXXXXXXX/exec</code>
+    </div>
+
+    <div style="background:#fff3cd;border-left:4px solid var(--gold);padding:14px 16px;font-size:13px;line-height:1.7;margin-bottom:14px;">
+      <strong style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#7c4d00;display:block;margin-bottom:8px;">Step 4 — Paste URL into this File</strong>
+      Open <strong>quiz.html</strong> in any text editor. Find this line near the top of the &lt;script&gt; section:<br>
+      <code style="background:#fff;padding:4px 8px;border-radius:2px;display:block;margin:6px 0;font-size:11px;">const SHEET_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';</code>
+      Replace <strong>YOUR_GOOGLE_APPS_SCRIPT_URL_HERE</strong> with your copied URL.<br>
+      Save the file and re-upload to GitHub. Done! ✅
+    </div>
+
+    <div style="background:#e8f5e9;border-left:4px solid var(--success);padding:14px 16px;font-size:13px;line-height:1.7;">
+      <strong style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--success);display:block;margin-bottom:6px;">✅ After Setup</strong>
+      • All 5 team members can take the quiz simultaneously from any laptop<br>
+      • Scores save automatically to your Google Sheet<br>
+      • Admin scoreboard fetches live data from the sheet<br>
+      • Historical data is never overwritten — all weeks stored permanently<br>
+      • You can also view all scores directly in your Google Sheet anytime
+    </div>
+  </div>
+</div>
+
 <footer class="page-footer">
-  <strong>TeamPulse Quiz</strong> · Edition 001 · 30 March – 05 April 2026 · Enhanced with Progress Tracker · Badges · Missed Review · Completion Tracker · Section Breakdown
+  <strong>TeamPulse Quiz</strong> · Edition 001 · 30 March – 05 April 2026 · Powered by Google Sheets · Simple · Reliable · Central
 </footer>
 
 <script>
-// ═══════════════════════════════════════════════════
-// CONFIG
-// ═══════════════════════════════════════════════════
-const TEAM = [
-  { name:'Ms. Muskan Singh',  short:'Muskan',  avatar:'👩‍💼', password:'Muskan@001'  },
-  { name:'Mr. Tejas Patel',   short:'Tejas',   avatar:'👨‍💼', password:'Tejas@002'   },
-  { name:'Mr. Aditya Baghel', short:'Aditya',  avatar:'👨‍💼', password:'Aditya@003'  },
-  { name:'Ms. Kajal Maurya',  short:'Kajal',   avatar:'👩‍💼', password:'Kajal@004'   },
-  { name:'Ms. Sejal Patel',   short:'Sejal',   avatar:'👩‍💼', password:'Sejal@005'   },
-];
+// ═══════════════════════════════════════════════
+// ⚙️ CONFIGURATION — Edit these values
+// ═══════════════════════════════════════════════
+const SHEET_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+// ↑ Replace with your Google Apps Script Web App URL after setup
+
 const ADMIN_PASSWORD   = 'Admin@TeamPulse2026';
+const CURRENT_WEEK     = 'Week 1';
 const CURRENT_EDITION  = 'Edition 001';
-const CURRENT_WEEK_LABEL = '30 Mar – 05 Apr 2026';
 const CURRENT_WEEK_KEY = 'week_001';
-const DISTRIBUTION = { procurement:7, logistics:7, store:7, behaviour:2, ai:2 };
-const SECTION_META = {
-  procurement:{ label:'Procurement',       icon:'🛒', color:'#c8401a', bg:'#fff3e0' },
-  logistics:  { label:'Logistics',          icon:'🚚', color:'#1a56a0', bg:'#e8f0fe' },
-  store:      { label:'Store & Inventory',  icon:'🏪', color:'#2e7d32', bg:'#e8f5e9' },
-  behaviour:  { label:'Behaviour & Skills', icon:'🧠', color:'#ad1457', bg:'#fce4ec' },
-  ai:         { label:'AI & Trends',        icon:'🤖', color:'#5e35b1', bg:'#ede7f6' },
-};
 
-// BADGE DEFINITIONS
-const BADGE_DEFS = [
-  { id:'first_attempt',  icon:'🎯', label:'First Attempt',   desc:'Completed your very first quiz',          check:(scores,member)=>scores.filter(s=>s.member===member.name).length>=1 },
-  { id:'perfect_score',  icon:'💯', label:'Perfect Score',   desc:'Scored 100% in a quiz',                   check:(scores,member)=>scores.some(s=>s.member===member.name&&s.score===100) },
-  { id:'high_achiever',  icon:'🏆', label:'High Achiever',   desc:'Scored 80% or above',                     check:(scores,member)=>scores.some(s=>s.member===member.name&&s.score>=80) },
-  { id:'three_streak',   icon:'🔥', label:'3-Week Streak',   desc:'Completed quiz 3 weeks in a row',         check:(scores,member)=>{const wks=[...new Set(scores.filter(s=>s.member===member.name).map(s=>s.weekKey))];return wks.length>=3;} },
-  { id:'most_improved',  icon:'📈', label:'Most Improved',   desc:'Improved score by 20%+ week over week',   check:(scores,member)=>{const ms=scores.filter(s=>s.member===member.name).sort((a,b)=>a.weekKey.localeCompare(b.weekKey));if(ms.length<2)return false;for(let i=1;i<ms.length;i++)if(ms[i].score-ms[i-1].score>=20)return true;return false;} },
-  { id:'consistent',     icon:'⭐', label:'Consistent',      desc:'Scored 60%+ in 2 consecutive weeks',      check:(scores,member)=>{const ms=scores.filter(s=>s.member===member.name).sort((a,b)=>a.weekKey.localeCompare(b.weekKey));if(ms.length<2)return false;for(let i=1;i<ms.length;i++)if(ms[i-1].score>=60&&ms[i].score>=60)return true;return false;} },
-  { id:'all_sections',   icon:'📚', label:'All-Rounder',     desc:'Scored 70%+ across all 5 sections in one quiz', check:(scores,member)=>scores.some(s=>s.member===member.name&&s.sectionScores&&Object.values(s.sectionScores).every(v=>v.pct>=70)) },
-  { id:'team_top',       icon:'👑', label:'Top of the Week', desc:'Highest score in any week',               check:(scores,member,weekScores)=>{if(!weekScores||!weekScores.length)return false;const max=Math.max(...weekScores.map(s=>s.score));return weekScores.some(s=>s.member===member.name&&s.score===max&&max>0);} },
+const TEAM = [
+  { name: 'Ms. Muskan Singh',  short: 'Muskan',  avatar: '👩‍💼', pwd: 'Muskan@001'  },
+  { name: 'Mr. Tejas Patel',   short: 'Tejas',   avatar: '👨‍💼', pwd: 'Tejas@002'   },
+  { name: 'Mr. Aditya Baghel', short: 'Aditya',  avatar: '👨‍💼', pwd: 'Aditya@003'  },
+  { name: 'Ms. Kajal Maurya',  short: 'Kajal',   avatar: '👩‍💼', pwd: 'Kajal@004'   },
+  { name: 'Ms. Sejal Patel',   short: 'Sejal',   avatar: '👩‍💼', pwd: 'Sejal@005'   },
 ];
 
-// ═══════════════════════════════════════════════════
+const DIST = { procurement: 7, logistics: 7, store: 7, behaviour: 2, ai: 2 };
+
+const SEC = {
+  procurement: { label: 'Procurement', icon: '🛒', color: '#c8401a', bg: '#fff3e0' },
+  logistics:   { label: 'Logistics',   icon: '🚚', color: '#1a56a0', bg: '#e8f0fe' },
+  store:       { label: 'Store',       icon: '🏪', color: '#2e7d32', bg: '#e8f5e9' },
+  behaviour:   { label: 'Behaviour',   icon: '🧠', color: '#ad1457', bg: '#fce4ec' },
+  ai:          { label: 'AI & Trends', icon: '🤖', color: '#5e35b1', bg: '#ede7f6' },
+};
+
+// ═══════════════════════════════════════════════
 // QUESTION BANK
-// ═══════════════════════════════════════════════════
+// ═══════════════════════════════════════════════
 const QB = {
-  procurement:[
-    {q:"Which type of Letter of Credit CANNOT be cancelled without the consent of ALL parties?",options:["Revocable LC","Irrevocable LC","Standby LC","Transferable LC"],answer:1,exp:"An Irrevocable LC cannot be cancelled or modified without consent of all parties — issuing bank, confirming bank, and beneficiary. It is the global standard in modern international trade."},
-    {q:"A Revolving LC is most suitable when:",options:["Buying from a new supplier for the first time","Making regular repeated purchases from the same supplier","The supplier's country has political instability","You want the seller to manage all logistics"],answer:1,exp:"A Revolving LC automatically reinstates itself after each use — eliminating the need to open a fresh LC for every shipment. Ideal for regular, scheduled purchases from the same supplier."},
-    {q:"Which LC type has a SECOND bank in the seller's country adding its guarantee?",options:["Transferable LC","Revolving LC","Confirmed LC","Standby LC"],answer:2,exp:"A Confirmed LC carries an additional guarantee from a second bank, usually in the seller's country. Used when the issuing bank's country carries high financial or political risk."},
-    {q:"A Standby LC is triggered when:",options:["The first shipment is dispatched","The buyer FAILS to fulfil their payment obligation","The seller requests advance payment","The revolving period expires"],answer:1,exp:"A Standby LC functions like a Bank Guarantee — only activated if the buyer defaults. Commonly used in long-term supply contracts and services agreements."},
-    {q:"A Transferable LC allows:",options:["The LC to revolve automatically each month","The buyer to cancel the LC anytime","The first beneficiary to transfer part of the credit to a sub-supplier","Two banks to jointly issue the LC"],answer:2,exp:"A Transferable LC lets the first beneficiary (often a trading company) transfer some or all of the LC value to the actual manufacturer, enabling seamless multi-tier supply chains."},
-    {q:"As a SELLER, which LC type should you AVOID accepting?",options:["Confirmed LC","Irrevocable LC","Revocable LC","Revolving LC"],answer:2,exp:"A Revocable LC can be cancelled or changed by the issuing bank at any time without notifying the seller — making it extremely risky and almost never used in modern trade."},
-    {q:"BATNA in procurement stands for:",options:["Best Approach To Negotiation Agreement","Best Alternative To a Negotiated Agreement","Buyer's Authority To Negotiate Amounts","Basic Agreement Terms and Negotiation Analysis"],answer:1,exp:"BATNA = Best Alternative To a Negotiated Agreement. Knowing your BATNA before any negotiation gives you a clear walk-away point, improving confidence and outcomes."},
-    {q:"Total Cost of Ownership (TCO) includes:",options:["Only the purchase price","Only transportation and storage costs","Purchase price, transportation, storage, inspection, rework, maintenance and disposal","Only the supplier's stated invoice value"],answer:2,exp:"TCO captures all costs of acquiring and using an item throughout its lifecycle — not just the unit price. The cheapest item rarely has the lowest TCO."},
-    {q:"The '5 Rights of Procurement' are:",options:["Right Vendor, Contract, Price, Market, Relationship","Right Quality, Quantity, Time, Place, Price","Right Source, Mode, Route, Rate, Service","Right People, Process, Tools, Time, Output"],answer:1,exp:"The 5 Rights — Quality, Quantity, Time, Place, and Price — are the fundamental checklist for every procurement decision. Missing any one creates downstream supply chain problems."},
-    {q:"A vendor scorecard for supplier evaluation should include:",options:["Only the unit price offered","OTIF rate, quality rejection rate, responsiveness, financial stability and compliance","Only delivery lead time and payment terms","Only the supplier's years of experience"],answer:1,exp:"A comprehensive vendor scorecard goes beyond price. OTIF, quality rejections, responsiveness, financial health, and compliance together give a full picture of supplier performance."},
+  procurement: [
+    { q: "Which LC type CANNOT be cancelled without ALL parties' consent?", opts: ["Revocable LC","Irrevocable LC","Standby LC","Transferable LC"], ans: 1, exp: "An Irrevocable LC cannot be cancelled or modified without consent of all parties. It is the global standard in modern international trade." },
+    { q: "A Revolving LC is most suitable when:", opts: ["Buying from a new supplier","Making regular repeated purchases from the same supplier","Supplier's country has political instability","Seller manages all logistics"], ans: 1, exp: "A Revolving LC reinstates itself after each use — ideal for regular, scheduled purchases from the same supplier." },
+    { q: "Which LC has a SECOND bank in the seller's country adding its guarantee?", opts: ["Transferable LC","Revolving LC","Confirmed LC","Standby LC"], ans: 2, exp: "A Confirmed LC has an additional guarantee from a second bank in the seller's country — used when the issuing bank's country carries high risk." },
+    { q: "A Standby LC is triggered when:", opts: ["First shipment dispatched","Buyer FAILS to fulfil payment obligation","Seller requests advance payment","Revolving period expires"], ans: 1, exp: "A Standby LC is only activated if the buyer defaults — functioning like a Bank Guarantee for long-term contracts." },
+    { q: "A Transferable LC allows:", opts: ["LC to revolve automatically","Buyer to cancel anytime","First beneficiary to transfer credit to a sub-supplier","Two banks to jointly issue"], ans: 2, exp: "A Transferable LC lets the first beneficiary transfer part or all of the LC value to the actual manufacturer." },
+    { q: "As a SELLER, which LC type should you AVOID?", opts: ["Confirmed LC","Irrevocable LC","Revocable LC","Revolving LC"], ans: 2, exp: "A Revocable LC can be cancelled by the issuing bank at any time without notice — making it extremely risky for the seller." },
+    { q: "BATNA in procurement stands for:", opts: ["Best Approach To Negotiation Agreement","Best Alternative To a Negotiated Agreement","Buyer's Authority To Negotiate Amounts","Basic Agreement Terms and Negotiation Analysis"], ans: 1, exp: "BATNA = Best Alternative To a Negotiated Agreement — your walk-away point in any negotiation." },
+    { q: "TCO (Total Cost of Ownership) includes:", opts: ["Only purchase price","Only transportation and storage","Purchase price, transport, storage, inspection, rework, maintenance and disposal","Only the supplier's invoice value"], ans: 2, exp: "TCO captures all costs of acquiring and using an item throughout its lifecycle — not just the unit price." },
+    { q: "The '5 Rights of Procurement' are:", opts: ["Vendor, Contract, Price, Market, Relationship","Quality, Quantity, Time, Place, Price","Source, Mode, Route, Rate, Service","People, Process, Tools, Time, Output"], ans: 1, exp: "The 5 Rights — Quality, Quantity, Time, Place, and Price — are the fundamental checklist for every procurement decision." },
+    { q: "A vendor scorecard should include:", opts: ["Only unit price","OTIF rate, quality rejection rate, responsiveness, financial stability and compliance","Only delivery lead time","Only years of experience"], ans: 1, exp: "A robust vendor scorecard includes OTIF, quality rejections, responsiveness, financial health, and compliance — going far beyond price alone." },
   ],
-  logistics:[
-    {q:"Under FOB, risk transfers from seller to buyer when:",options:["Goods leave the seller's factory","Goods are loaded onto the vessel at the origin port","Goods arrive at the destination port","The buyer receives goods at their warehouse"],answer:1,exp:"Under FOB, risk transfers at the ship's rail at the origin port. The seller is responsible up to and including loading; the buyer bears risk from that point onward."},
-    {q:"Under CIF terms, who pays for freight and minimum insurance to the destination port?",options:["The buyer pays for everything","The seller pays for freight and minimum insurance","The shipping line bears all costs","Each party pays 50%"],answer:1,exp:"Under CIF (Cost, Insurance & Freight), the seller pays freight and minimum insurance to the named destination port. However, risk still transfers to the buyer at the origin port — same as FOB."},
-    {q:"Which Incoterm places MAXIMUM obligation on the seller including import duties?",options:["FOB","CIF","DAP","DDP"],answer:3,exp:"DDP (Delivered Duty Paid) places maximum obligation on the seller — they handle everything including import customs clearance and duties at the buyer's destination country."},
-    {q:"EXW (Ex Works) means:",options:["Seller delivers to the destination port","Seller's obligation ends at their factory gate — buyer arranges everything","Seller pays all freight to destination","Seller and buyer share logistics costs equally"],answer:1,exp:"EXW places minimum obligation on the seller. Goods are made available at the seller's premises; the buyer organises and pays for all transportation, customs formalities, and delivery."},
-    {q:"The correct format for specifying Incoterms in a contract is:",options:["Just write FOB or CIF","Incoterm + Named Place + Year: e.g. 'FOB Shanghai Port 2020'","Write the Incoterm followed by the buyer's country","No specific format is required"],answer:1,exp:"Always write: Incoterm + Named Place + Year (e.g. 'CIF Mumbai Port 2020'). The named place defines exactly where risk and cost transfer; the year specifies which ICC ruleset applies."},
-    {q:"OTIF stands for:",options:["On Time In Full","Order Tracking and Invoice Filing","Outbound Transport and Inbound Freight","Operational Time and Inventory Flow"],answer:0,exp:"OTIF = On Time In Full. It measures what percentage of orders were delivered both on time AND in full quantity. A score below 95% indicates a supply chain performance issue."},
-    {q:"Lead Time in logistics refers to:",options:["Time to complete one internal work unit","Total time from placing an order to receiving delivery","Time for a vehicle to reach its destination","Time a team leader spends managing"],answer:1,exp:"Lead Time is the total elapsed time from order placement to delivery receipt — including order processing, production/picking, and transit. It is the key input for reorder point calculations."},
-    {q:"Why is dual sourcing recommended for critical materials?",options:["It always gives the lowest unit price","It protects against disruptions by maintaining a qualified backup supplier","It simplifies supplier management","It is required by international procurement standards"],answer:1,exp:"Dual sourcing maintains a primary and a pre-qualified backup supplier. While slightly more expensive, it protects business continuity — COVID-19 demonstrated the catastrophic cost of single-source dependency."},
-    {q:"FCA is preferred over EXW for containerised trade because:",options:["FCA is always cheaper","Under FCA the seller loads the container and hands it to the buyer's carrier — making risk transfer cleaner","FCA includes insurance to destination","FCA eliminates export customs"],answer:1,exp:"FCA is a modern alternative to EXW for container shipments. The seller delivers goods to the buyer's nominated carrier at a named location, making risk transfer clearer and more practical."},
-    {q:"FIFO in warehouse management means:",options:["First Invoice, First Out","First In, First Out — older stock dispatched before newer","Fast Items First Out — high-velocity items prioritised","Freight In, Freight Out"],answer:1,exp:"FIFO (First In, First Out) ensures the oldest stock is used or shipped first — critical for perishables, pharmaceuticals, and time-sensitive goods to prevent obsolescence and waste."},
+  logistics: [
+    { q: "Under FOB, risk transfers from seller to buyer when:", opts: ["Goods leave seller's factory","Goods loaded onto vessel at origin port","Goods arrive at destination port","Buyer receives goods at warehouse"], ans: 1, exp: "Under FOB, risk transfers at the ship's rail at the origin port — the seller is responsible up to loading." },
+    { q: "Under CIF terms, who pays freight and minimum insurance to destination port?", opts: ["Buyer pays everything","Seller pays freight and minimum insurance","Shipping line bears all costs","Each party pays 50%"], ans: 1, exp: "Under CIF, the seller pays freight and minimum insurance to the named destination port, though risk still transfers to the buyer at the origin port." },
+    { q: "Which Incoterm places MAXIMUM obligation on the seller including import duties?", opts: ["FOB","CIF","DAP","DDP"], ans: 3, exp: "DDP (Delivered Duty Paid) places maximum obligation on the seller — they handle everything including import customs and duties." },
+    { q: "EXW (Ex Works) means:", opts: ["Seller delivers to destination port","Seller's obligation ends at factory gate — buyer arranges everything","Seller pays all freight","Seller and buyer share costs equally"], ans: 1, exp: "EXW places minimum obligation on the seller. Goods are made available at seller's premises; buyer organises all transportation and customs." },
+    { q: "Correct format for specifying Incoterms in a contract:", opts: ["Just write FOB or CIF","Incoterm + Named Place + Year: e.g. 'FOB Shanghai Port 2020'","Incoterm followed by buyer's country","No specific format required"], ans: 1, exp: "Always write: Incoterm + Named Place + Year. The named place defines exactly where risk and cost transfer." },
+    { q: "OTIF stands for:", opts: ["On Time In Full","Order Tracking and Invoice Filing","Outbound Transport and Inbound Freight","Operational Time and Inventory Flow"], ans: 0, exp: "OTIF = On Time In Full — measures what % of orders were delivered both on time AND in full quantity. Below 95% is a red flag." },
+    { q: "Lead Time in logistics refers to:", opts: ["Time to complete one internal work unit","Total time from placing order to receiving delivery","Time for vehicle to reach destination","Time a manager spends leading"], ans: 1, exp: "Lead Time is the total elapsed time from order placement to delivery receipt — the key input for reorder point calculations." },
+    { q: "Why is dual sourcing recommended for critical materials?", opts: ["Always gives lowest unit price","Protects against disruptions by maintaining a qualified backup supplier","Simplifies supplier management","Required by international standards"], ans: 1, exp: "Dual sourcing maintains a primary and pre-qualified backup supplier — protecting business continuity during disruptions." },
+    { q: "FCA is preferred over EXW for containerised trade because:", opts: ["FCA is always cheaper","Seller loads container at their site and hands to buyer's carrier — cleaner risk transfer","FCA includes insurance to destination","FCA eliminates export customs"], ans: 1, exp: "FCA delivers goods to the buyer's nominated carrier at a named location — making risk transfer clearer and more practical for container shipments." },
+    { q: "FIFO in warehouse management means:", opts: ["First Invoice First Out","First In First Out — older stock dispatched before newer","Fast Items First Out","Freight In Freight Out"], ans: 1, exp: "FIFO ensures the oldest stock is used or shipped first — critical for perishables and time-sensitive goods to prevent obsolescence." },
   ],
-  store:[
-    {q:"In ABC Analysis, A-items typically represent:",options:["50% of SKUs and 5% of inventory value","10–20% of SKUs accounting for 70–80% of total inventory value","40% of SKUs with equal value","All items alphabetically"],answer:1,exp:"A-items are the top 10–20% of SKUs by value, representing 70–80% of total inventory value. They require the tightest control, most frequent review, and dedicated management attention."},
-    {q:"The correct Reorder Point formula is:",options:["Average Daily Usage + Safety Stock","(Average Daily Usage × Lead Time) + Safety Stock","Maximum Stock − Minimum Stock","Annual Usage ÷ Number of Orders"],answer:1,exp:"Reorder Point = (Average Daily Usage × Lead Time) + Safety Stock. This is the stock level at which you must raise a new order to avoid a stockout."},
-    {q:"A ₹50 O-ring stops a ₹20 lakh machine from operating. In ABC terms it should be:",options:["C-item — very low monetary value","B-item — moderately important","A-item — business criticality overrides unit cost","Excluded from ABC — too inexpensive"],answer:2,exp:"Criticality overrides cost in ABC classification. Any item whose absence causes a production stoppage or business impact must be managed as an A-item regardless of unit cost."},
-    {q:"Why is Cycle Counting preferred over annual stock takes?",options:["Cheaper to implement with no training","Discrepancies found immediately, records accurate year-round, no operational shutdowns needed","Only needs to be done once a year","Automatically updates WMS without manual effort"],answer:1,exp:"Cycle counting finds errors when they happen — not 11 months later. It keeps inventory accuracy high year-round, builds accuracy habits, and eliminates costly operational shutdowns."},
-    {q:"In the 5S methodology, SORT means:",options:["Arrange items alphabetically by SKU","Remove all items not needed for current operations from the workspace","Sort items by expiry date using FIFO","Create a sorting system for incoming goods"],answer:1,exp:"Sort is the foundation of 5S — removing everything not needed for current work from the workspace. This eliminates clutter, makes the environment cleaner, and reveals hidden problems."},
-    {q:"RFID is preferred over barcodes when:",options:["You want to reduce technology investment","You need bulk scanning without line-of-sight, for high-value or high-volume items","All items are too small for labels","You manage C-class consumables only"],answer:1,exp:"RFID enables multiple items to be scanned simultaneously without line-of-sight. Ideal for rapid stock checks, high-value items, and environments where barcode scanning is impractical."},
-    {q:"In ABC-XYZ analysis, 'Z' classification indicates:",options:["Zero-stock items","Items with unpredictable or highly erratic demand patterns","Items at end of product lifecycle","Items in Zone Z storage"],answer:1,exp:"In XYZ classification: X = stable demand, Y = variable but manageable, Z = highly erratic and unpredictable. A CZ item may still need special attention if business-critical."},
-    {q:"Slotting in a warehouse is best defined as:",options:["Scheduling inbound delivery time slots for suppliers","Assigning items to storage locations based on velocity, frequency and access requirements","Allocating time slots for warehouse staff shifts","Creating budget slots for inventory categories"],answer:1,exp:"Slotting is the strategic assignment of SKUs to storage locations — placing high-velocity items closest to shipping and slower movers to back or higher racks. Reduces travel time, errors, and fatigue."},
-    {q:"Step 1 of building an ABC classification is:",options:["Label all items based on your experience","List all SKUs with annual usage quantity and calculate annual value per SKU (quantity × unit cost)","Survey your team to agree on which items are most important","Sort items alphabetically and assign categories in thirds"],answer:1,exp:"Step 1: List all SKUs with annual usage quantity × unit cost = annual value. Sort from highest to lowest value and calculate cumulative % to determine A, B, and C category boundaries."},
-    {q:"Recommended safety stock approach for A-items vs C-items:",options:["Same safety stock for all items","A-items: tight precisely-calculated safety stock (1–2 weeks); C-items: generous stock acceptable as carrying cost is low","A-items: no safety stock; C-items: maximum safety stock","C-items: tightest control; A-items: loosest control"],answer:1,exp:"A-items carry tight, precisely calculated safety stock as their high value makes excess expensive. C-items can carry generous safety stock because low unit cost makes extra holding negligible vs stockout risk."},
+  store: [
+    { q: "In ABC Analysis, A-items typically represent:", opts: ["50% of SKUs and 5% of inventory value","10–20% of SKUs accounting for 70–80% of total inventory value","40% of SKUs with equal value","All items listed alphabetically"], ans: 1, exp: "A-items are the top 10–20% of SKUs by value, representing 70–80% of total inventory value — requiring the tightest control." },
+    { q: "The correct Reorder Point formula:", opts: ["Average Daily Usage + Safety Stock","(Average Daily Usage × Lead Time) + Safety Stock","Maximum Stock − Minimum Stock","Annual Usage ÷ Number of Orders"], ans: 1, exp: "Reorder Point = (Average Daily Usage × Lead Time) + Safety Stock — the exact level at which you must raise a new order to avoid stockout." },
+    { q: "A ₹50 O-ring stops a ₹20 lakh machine. In ABC terms it should be:", opts: ["C-item — very low monetary value","B-item — moderately important","A-item — business criticality overrides unit cost","Excluded from ABC — too inexpensive"], ans: 2, exp: "Criticality overrides cost in ABC classification. Any item whose absence causes a production stoppage must be managed as an A-item regardless of unit cost." },
+    { q: "Why is Cycle Counting preferred over annual stock takes?", opts: ["Cheaper to implement","Discrepancies found immediately, records accurate year-round, no operational shutdown needed","Only needs doing once a year","Automatically updates WMS"], ans: 1, exp: "Cycle counting finds errors when they happen — not 11 months later. It maintains year-round accuracy without costly operational shutdowns." },
+    { q: "In 5S methodology, SORT means:", opts: ["Arrange items alphabetically","Remove all items not needed for current operations from the workspace","Sort items by expiry date","Create a sorting system for incoming goods"], ans: 1, exp: "Sort is the foundation of 5S — removing everything not needed for current work. This eliminates clutter and reveals hidden problems." },
+    { q: "RFID is preferred over barcodes when:", opts: ["You want to reduce technology investment","You need bulk scanning without line-of-sight for high-value or high-volume items","All items are too small for labels","You only manage C-class consumables"], ans: 1, exp: "RFID enables multiple items to be scanned simultaneously without line-of-sight — ideal for rapid stock checks and high-value items." },
+    { q: "In ABC-XYZ analysis, 'Z' classification means:", opts: ["Zero-stock items","Items with unpredictable or highly erratic demand","Items at end of product lifecycle","Items in Zone Z storage"], ans: 1, exp: "Z = highly erratic, unpredictable demand. A CZ item (low value, erratic demand) may still need special attention if business-critical." },
+    { q: "Slotting in a warehouse means:", opts: ["Scheduling delivery time slots","Assigning items to storage locations based on velocity, frequency and access requirements","Allocating time slots for staff shifts","Creating budget slots for inventory categories"], ans: 1, exp: "Slotting is the strategic assignment of SKUs to storage locations — placing high-velocity items nearest to shipping to reduce travel time and errors." },
+    { q: "Step 1 of building an ABC classification:", opts: ["Label all items based on experience","List all SKUs with annual usage quantity and calculate annual value (quantity × unit cost)","Survey team on most important items","Sort items alphabetically in thirds"], ans: 1, exp: "Step 1: List all SKUs with annual usage × unit cost = annual value. Sort from highest to lowest and calculate cumulative % to determine A, B, C boundaries." },
+    { q: "Recommended safety stock for A-items vs C-items:", opts: ["Same safety stock for all","A-items: tight 1–2 weeks; C-items: generous safety stock acceptable","A-items: no safety stock; C-items: maximum stock","C-items: tightest control; A-items: loosest"], ans: 1, exp: "A-items: tight, precisely calculated safety stock (high value = expensive to overstock). C-items: generous safety stock is acceptable as carrying cost is negligible." },
   ],
-  behaviour:[
-    {q:"According to Goleman, EQ accounts for approximately what % of what separates high from average leadership performers?",options:["About 20%","About 50%","Nearly 90%","Exactly 100%"],answer:2,exp:"Goleman's research found EQ accounts for nearly 90% of what distinguishes top leaders from average ones — far exceeding IQ or technical expertise."},
-    {q:"The FIRST and foundational pillar of Emotional Intelligence is:",options:["Relationship Management","Empathy","Self-Awareness","Self-Management"],answer:2,exp:"Self-Awareness is the foundation of all EQ — accurately recognising your own emotions, triggers, strengths, and weaknesses. Without it, the other pillars cannot be effectively developed."},
-    {q:"The SBI Feedback Model stands for:",options:["Skill, Benchmark, Improvement","Situation, Behaviour, Impact","Standard, Behaviour, Indicator","Subject, Background, Instruction"],answer:1,exp:"SBI = Situation (when/where), Behaviour (what was observed — not personality), Impact (the effect it had). Keeps feedback factual, specific, and constructive rather than personal."},
-    {q:"Gallup 2025 found what % of team engagement variance is explained by manager behaviour?",options:["30%","50%","70%","95%"],answer:2,exp:"Gallup's 2025 research across 160+ countries found manager behaviour explains 70% of team engagement variance — making the direct manager the single most influential engagement factor."},
-    {q:"A Growth Mindset professionally means:",options:["Focusing exclusively on financial growth","Believing abilities can be developed through effort — 'not yet' rather than 'can't'","Growing your professional network rapidly","Always seeking new challenges"],answer:1,exp:"Growth Mindset (Carol Dweck): intelligence and abilities are not fixed — they can be developed through dedication. 'I'm not good at this yet' vs 'I'm not good at this' changes the entire trajectory."},
-    {q:"Extreme Ownership as a professional principle means:",options:["Physically owning the highest number of projects","Taking full personal responsibility for all outcomes — even when others contributed","Being the most senior decision-maker on every issue","Owning all external stakeholder communication"],answer:1,exp:"Extreme Ownership means accepting full accountability for your team's results without blaming external circumstances. This builds trust, eliminates excuses, and accelerates problem-solving."},
-    {q:"The '6-second rule' in emotional self-management works because:",options:["It takes 6 seconds to write a professional response","6 seconds allows the rational brain to engage after an emotional trigger fires","6 seconds is the standard professional communication pause","It was proven in 6 separate research studies"],answer:1,exp:"When triggered emotionally, the amygdala fires first. Pausing 6 seconds allows the prefrontal cortex (rational brain) to engage — enabling a thoughtful response rather than an impulsive reaction."},
-    {q:"Social Awareness (Empathy) as an EQ pillar primarily means:",options:["Being widely popular and well-liked","Accurately sensing and understanding what others feel, even when not directly expressed","Proactively sharing your own emotions with the team","Participating frequently in social events"],answer:1,exp:"Social Awareness/Empathy is the capacity to accurately read others' emotional states and perspectives — including unspoken feelings. It allows you to adapt your communication and leadership style to each individual."},
+  behaviour: [
+    { q: "Goleman's research shows EQ accounts for approximately what % of what separates high from average leadership performers?", opts: ["About 20%","About 50%","Nearly 90%","Exactly 100%"], ans: 2, exp: "Goleman's research found EQ accounts for nearly 90% of what distinguishes top leaders from average ones — far exceeding IQ or technical expertise." },
+    { q: "The FIRST and foundational pillar of Emotional Intelligence is:", opts: ["Relationship Management","Empathy","Self-Awareness","Self-Management"], ans: 2, exp: "Self-Awareness is the foundation of all EQ — accurately recognising your own emotions, triggers, strengths, and weaknesses. Without it, the other pillars cannot develop." },
+    { q: "The SBI Feedback Model stands for:", opts: ["Skill, Benchmark, Improvement","Situation, Behaviour, Impact","Standard, Behaviour, Indicator","Subject, Background, Instruction"], ans: 1, exp: "SBI = Situation (when/where), Behaviour (what was observed), Impact (the effect). Keeps feedback factual and constructive rather than personal." },
+    { q: "Gallup 2025 found what % of team engagement variance is explained by manager behaviour?", opts: ["30%","50%","70%","95%"], ans: 2, exp: "Gallup's 2025 research across 160+ countries found manager behaviour explains 70% of team engagement variance — making the direct manager the single most influential factor." },
+    { q: "A Growth Mindset professionally means:", opts: ["Focusing exclusively on financial growth","Believing abilities can be developed — 'not yet' rather than 'can't'","Growing your professional network rapidly","Always seeking new challenges"], ans: 1, exp: "Growth Mindset (Carol Dweck): intelligence and abilities are not fixed — they can be developed through dedication. 'Not yet' vs 'can't' changes the entire trajectory." },
+    { q: "Extreme Ownership as a professional principle means:", opts: ["Physically owning the most projects","Taking full personal responsibility for outcomes — even when others contributed","Being most senior decision-maker on every issue","Owning all external communication"], ans: 1, exp: "Extreme Ownership means accepting full accountability without blaming external circumstances. Builds trust, eliminates excuses, accelerates problem-solving." },
+    { q: "The '6-second rule' in emotional self-management works because:", opts: ["Takes 6 seconds to write a professional response","6 seconds allows the rational brain to engage after an emotional trigger fires","6 seconds is the standard professional pause","Proven in 6 separate studies"], ans: 1, exp: "The amygdala fires first when triggered emotionally. Pausing 6 seconds allows the prefrontal cortex (rational brain) to engage — enabling a thoughtful response." },
+    { q: "Social Awareness (Empathy) as an EQ pillar means:", opts: ["Being widely popular and well-liked","Accurately sensing what others feel, even when not directly expressed","Proactively sharing your own emotions","Participating frequently in social events"], ans: 1, exp: "Social Awareness/Empathy is the capacity to accurately read others' emotional states — including unspoken feelings. Allows you to adapt your leadership style to each person." },
   ],
-  ai:[
-    {q:"Machine Learning (ML) in supply chain is primarily used for:",options:["Permanently replacing all human decision-making","Learning from data to improve predictions — demand forecasting, supplier risk scoring","Installing physical robots in warehouses","Managing employee development programmes"],answer:1,exp:"ML trains on historical and real-time data to continuously improve predictions. Key supply chain applications: demand forecasting, commodity price prediction, supplier risk scoring, and delivery time prediction."},
-    {q:"Natural Language Processing (NLP) enables which supply chain capability?",options:["Physical robots picking warehouse items","Contract analysis, email classification, and automated document processing","Real-time GPS vehicle tracking","Automated inventory counting via cameras"],answer:1,exp:"NLP allows AI to read, understand, and generate human language. Supply chain applications: contract clause analysis, supplier email classification, chatbots, and invoice/PO data extraction."},
-    {q:"Agentic AI differs from traditional AI because it:",options:["Only generates reports for human review","Takes autonomous actions within defined boundaries — not just provides recommendations","Requires human approval for every decision","Works only with structured spreadsheet data"],answer:1,exp:"Agentic AI takes independent actions within set boundaries — raising POs, rerouting shipments, requesting quotes, escalating compliance issues without human trigger. Traditional AI only advises; agentic AI acts."},
-    {q:"The formula for an effective AI prompt is:",options:["Keep prompts under 5 words","Role + Context + Task + Format + Constraints","Use technical jargon exclusively","Type quickly — AI will auto-correct"],answer:1,exp:"A powerful prompt: Role (who AI should be), Context (the situation), Task (what you need), Format (how you want output), Constraints (word count, tone, limitations). This structure consistently produces superior outputs."},
-    {q:"Demand Sensing improves forecast accuracy by:",options:["Asking customers directly what they'll purchase","Adding real-time signals (weather, POS data, economic indicators) to traditional historical forecasting","Reducing the product range to simplify demand","Hiring more experienced demand planners"],answer:1,exp:"Demand Sensing integrates real-time external data signals alongside historical patterns, creating short-term forecasts 30–50% more accurate than traditional methods. Reduces both stockouts and excess inventory."},
-    {q:"According to GEP Outlook 2026, the real barrier between AI leaders and laggards in procurement is:",options:["Budget — AI leaders invest 10x more","Organisational culture and individual mindset — not technology investment","Having a dedicated AI department","Access to exclusive AI platforms"],answer:1,exp:"GEP Outlook 2026 identifies 'algorithmic apathy' as the true barrier — employees ignoring tools, running superficial pilots, accepting AI outputs without judgment. Culture and mindset, not code, determine who wins."},
-    {q:"Which can your team do with FREE AI tools TODAY?",options:["Fully automate all procurement decisions","Draft RFQs, summarise contracts, build supplier comparison tables, write supplier emails","Replace your entire ERP system","Predict commodity prices with 100% accuracy"],answer:1,exp:"Free AI tools (Claude, ChatGPT) can immediately help: writing supplier communications, summarising documents, creating comparison tables, generating RFQs, researching market benchmark pricing — zero cost to start."},
-    {q:"Computer Vision in supply chain operations is used for:",options:["Improving employee reading speed","Automated quality inspection, picking verification, and inventory counting via cameras","Creating KPI dashboards and management reports","Designing warehouse layouts"],answer:1,exp:"Computer Vision enables AI to interpret images and video in real time: automated defect detection on production lines, confirming correct items are picked, and counting inventory using ceiling-mounted cameras."},
+  ai: [
+    { q: "Machine Learning (ML) in supply chain is primarily used for:", opts: ["Permanently replacing all human decision-making","Learning from data to improve predictions — demand forecasting, supplier risk scoring","Installing physical robots in warehouses","Managing employee development programmes"], ans: 1, exp: "ML trains on historical and real-time data to continuously improve predictions. Key applications: demand forecasting, commodity price prediction, and supplier risk scoring." },
+    { q: "Natural Language Processing (NLP) enables which supply chain capability?", opts: ["Physical robots picking warehouse items","Contract analysis, email classification, and automated document processing","Real-time GPS vehicle tracking","Automated inventory counting via cameras"], ans: 1, exp: "NLP allows AI to read, understand, and generate human language. Applications: contract clause analysis, supplier email classification, chatbots, and invoice/PO data extraction." },
+    { q: "Agentic AI differs from traditional AI because it:", opts: ["Only generates reports for human review","Takes autonomous actions within defined boundaries — not just provides recommendations","Requires human approval for every decision","Works only with structured spreadsheet data"], ans: 1, exp: "Agentic AI takes independent actions within set boundaries — raising POs, rerouting shipments, escalating issues. Traditional AI only advises; agentic AI acts." },
+    { q: "The formula for an effective AI prompt:", opts: ["Keep prompts under 5 words","Role + Context + Task + Format + Constraints","Use technical jargon exclusively","Type quickly — AI auto-corrects"], ans: 1, exp: "A powerful prompt: Role (who AI should be), Context (the situation), Task (what you need), Format (how you want output), Constraints (word count, tone). Consistently produces superior outputs." },
+    { q: "Demand Sensing improves forecast accuracy by:", opts: ["Asking customers what they'll purchase","Adding real-time signals (weather, POS data, economic indicators) to traditional historical forecasting","Reducing product range to simplify demand","Hiring more experienced demand planners"], ans: 1, exp: "Demand Sensing integrates real-time external signals alongside historical data, creating short-term forecasts 30–50% more accurate than traditional methods." },
+    { q: "According to GEP Outlook 2026, the real barrier between AI leaders and laggards:", opts: ["Budget — AI leaders invest 10x more","Organisational culture and individual mindset — not technology investment","Having a dedicated AI department","Access to exclusive AI platforms"], ans: 1, exp: "GEP 2026: 'algorithmic apathy' is the true barrier — employees ignoring tools, running superficial pilots, accepting AI outputs without judgment. Culture, not code, determines who wins." },
+    { q: "What can your team do with FREE AI tools TODAY?", opts: ["Fully automate all procurement decisions","Draft RFQs, summarise contracts, build supplier comparison tables, write supplier emails","Replace your entire ERP system","Predict commodity prices with 100% accuracy"], ans: 1, exp: "Free AI tools (Claude, ChatGPT) can immediately help: writing supplier communications, summarising documents, creating comparison tables, generating RFQs, researching market benchmark pricing." },
+    { q: "Computer Vision in supply chain is used for:", opts: ["Improving employee reading speed","Automated quality inspection, picking verification, inventory counting via cameras","Creating KPI dashboards","Designing warehouse layouts"], ans: 1, exp: "Computer Vision enables AI to interpret images and video: automated defect detection on production lines, confirming correct items are picked, and counting inventory using cameras." },
   ],
 };
 
-// ═══════════════════════════════════════════════════
+// ═══════════════════════════════════════════════
 // STATE
-// ═══════════════════════════════════════════════════
-let selectedMemberIdx = null;
-let currentQuestions  = [];
-let currentQIdx       = 0;
-let timerInterval     = null;
-let timeLeft          = 30;
-let answered          = false;
-let quizScore         = {correct:0,wrong:0,timeout:0};
-let sectionScores     = {};
-let missedQuestions   = [];
-let adminLoggedIn     = false;
-let activeWeekKey     = CURRENT_WEEK_KEY;
-let chartMemberIdx    = 0;
+// ═══════════════════════════════════════════════
+let selIdx = null;
+let questions = [];
+let qIdx = 0;
+let timerInt = null;
+let timeLeft = 30;
+let answered = false;
+let score = { correct: 0, wrong: 0, timeout: 0 };
+let secScores = {};
+let missed = [];
+let violations = 0;
+let quizRunning = false;
+let adminIn = false;
+let activeWeekTab = CURRENT_WEEK_KEY;
 
-// ═══════════════════════════════════════════════════
+// ═══════════════════════════════════════════════
 // INIT
-// ═══════════════════════════════════════════════════
-window.onload = () => {
+// ═══════════════════════════════════════════════
+window.onload = function() {
   renderMembers();
-  if(sessionStorage.getItem('tp_admin')==='1'){ adminLoggedIn=true; }
-  // Init section scores
-  Object.keys(SECTION_META).forEach(s=>{ sectionScores[s]={correct:0,total:0}; });
+  initAntiCheat();
+  // Show setup notice if URL not configured
+  if (SHEET_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+    document.getElementById('setup-notice').style.display = 'block';
+  }
+  if (sessionStorage.getItem('tp_admin') === '1') {
+    adminIn = true;
+  }
+  Object.keys(SEC).forEach(s => { secScores[s] = { correct: 0, total: 0 }; });
 };
 
-// ═══════════════════════════════════════════════════
-// LOGIN
-// ═══════════════════════════════════════════════════
-function renderMembers(){
-  document.getElementById('member-grid').innerHTML=TEAM.map((m,i)=>`
-    <button class="member-btn" onclick="selectMember(${i},this)">
-      <span class="m-avatar">${m.avatar}</span>${m.name}
-      <span class="m-role">${m.short}</span>
-    </button>`).join('');
+// ═══════════════════════════════════════════════
+// ANTI-CHEAT — simple and reliable
+// ═══════════════════════════════════════════════
+function initAntiCheat() {
+  // Block copy/paste/cut
+  ['copy','cut','paste'].forEach(ev => {
+    document.addEventListener(ev, function(e) {
+      if (quizRunning) { e.preventDefault(); }
+    });
+  });
+  // Block right-click
+  document.addEventListener('contextmenu', function(e) {
+    if (quizRunning) e.preventDefault();
+  });
+  // Block common keyboard shortcuts
+  document.addEventListener('keydown', function(e) {
+    if (!quizRunning) return;
+    if (e.ctrlKey && ['c','a','u','s','p'].includes(e.key.toLowerCase())) {
+      e.preventDefault();
+    }
+  });
+  // Tab/window switch detection
+  document.addEventListener('visibilitychange', function() {
+    if (quizRunning && document.hidden) {
+      violations++;
+      showCheatWarning('You switched away from the quiz window. This has been recorded.');
+    }
+  });
 }
 
-function selectMember(i,btn){
-  document.querySelectorAll('.member-btn').forEach(b=>b.classList.remove('selected'));
-  btn.classList.add('selected');
-  selectedMemberIdx=i;
-  document.getElementById('pwd-section').style.display='block';
-  document.getElementById('pwd-input').value='';
-  clearPwdError();
-  document.getElementById('pwd-input').focus();
-  document.getElementById('start-btn').disabled=false;
-  document.getElementById('start-btn').textContent=`Login as ${TEAM[i].name} →`;
-}
-
-function clearPwdError(){
-  document.getElementById('pwd-error').classList.remove('show');
-  document.getElementById('pwd-input').classList.remove('error');
-}
-
-function togglePwd(){
-  const inp=document.getElementById('pwd-input');
-  inp.type=inp.type==='password'?'text':'password';
-}
-
-function attemptLogin(){
-  if(selectedMemberIdx===null)return;
-  const entered=document.getElementById('pwd-input').value.trim();
-  if(entered===TEAM[selectedMemberIdx].password){ startQuiz(); }
-  else{
-    document.getElementById('pwd-error').classList.add('show');
-    document.getElementById('pwd-input').classList.add('error');
-    document.getElementById('pwd-input').value='';
-    document.getElementById('pwd-input').focus();
+function showCheatWarning(msg) {
+  clearInterval(timerInt); // pause timer while overlay is shown
+  document.getElementById('ac-msg').textContent = msg;
+  document.getElementById('ac-count').textContent = 'Total violations: ' + violations;
+  document.getElementById('ac-overlay').classList.add('show');
+  if (violations > 0) {
+    document.getElementById('viol-badge').style.display = 'inline';
+    document.getElementById('viol-cnt').textContent = violations;
   }
 }
 
-// ═══════════════════════════════════════════════════
-// QUIZ BUILD
-// ═══════════════════════════════════════════════════
-function buildQuestionSet(){
-  const set=[];
-  Object.entries(DISTRIBUTION).forEach(([sec,count])=>{
-    const pool=[...QB[sec]];
+function resumeQuiz() {
+  document.getElementById('ac-overlay').classList.remove('show');
+  if (quizRunning && !answered) startTimer(); // resume timer
+}
+
+// ═══════════════════════════════════════════════
+// SETUP / LOGIN
+// ═══════════════════════════════════════════════
+function renderMembers() {
+  document.getElementById('member-grid').innerHTML = TEAM.map((m, i) => `
+    <button class="member-btn" onclick="selectMember(${i}, this)">
+      <span class="m-av">${m.avatar}</span>${m.name}
+    </button>`).join('');
+}
+
+function selectMember(i, btn) {
+  document.querySelectorAll('.member-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  selIdx = i;
+  document.getElementById('pwd-section').style.display = 'block';
+  const pi = document.getElementById('pwd-inp');
+  pi.value = '';
+  pi.classList.remove('err');
+  document.getElementById('pwd-error').classList.remove('show');
+  pi.focus();
+  const sb = document.getElementById('start-btn');
+  sb.disabled = false;
+  sb.textContent = 'Start Quiz as ' + TEAM[i].name + ' →';
+}
+
+function togglePwd() {
+  const i = document.getElementById('pwd-inp');
+  i.type = i.type === 'password' ? 'text' : 'password';
+}
+
+function attemptStart() {
+  if (selIdx === null) return;
+  const entered = document.getElementById('pwd-inp').value.trim();
+  if (entered === TEAM[selIdx].pwd) {
+    startQuiz();
+  } else {
+    document.getElementById('pwd-inp').classList.add('err');
+    document.getElementById('pwd-error').classList.add('show');
+    document.getElementById('pwd-inp').value = '';
+    document.getElementById('pwd-inp').focus();
+  }
+}
+
+// ═══════════════════════════════════════════════
+// BUILD QUESTION SET
+// ═══════════════════════════════════════════════
+function buildQuestions() {
+  const set = [];
+  Object.entries(DIST).forEach(([sec, count]) => {
+    const pool = QB[sec].slice(); // copy
     shuffle(pool);
-    pool.slice(0,Math.min(count,pool.length)).forEach(q=>set.push({...q,section:sec}));
+    pool.slice(0, Math.min(count, pool.length)).forEach(q => {
+      set.push(Object.assign({}, q, { section: sec }));
+    });
   });
   shuffle(set);
   return set;
 }
 
-function startQuiz(){
-  currentQuestions=buildQuestionSet();
-  currentQIdx=0;
-  quizScore={correct:0,wrong:0,timeout:0};
-  missedQuestions=[];
-  Object.keys(SECTION_META).forEach(s=>{ sectionScores[s]={correct:0,total:0}; });
-  document.getElementById('quiz-member-name').textContent=TEAM[selectedMemberIdx].name;
-  document.getElementById('q-total').textContent=currentQuestions.length;
+// ═══════════════════════════════════════════════
+// QUIZ FLOW
+// ═══════════════════════════════════════════════
+function startQuiz() {
+  questions = buildQuestions();
+  qIdx = 0;
+  score = { correct: 0, wrong: 0, timeout: 0 };
+  missed = [];
+  violations = 0;
+  Object.keys(SEC).forEach(s => { secScores[s] = { correct: 0, total: 0 }; });
+  quizRunning = true;
+
+  document.getElementById('qz-name').textContent = TEAM[selIdx].name;
+  document.getElementById('qz-tot').textContent = questions.length;
+  document.getElementById('viol-badge').style.display = 'none';
+
   showScreen('quiz');
-  loadQ();
+  renderQ();
 }
 
-// ═══════════════════════════════════════════════════
-// QUIZ FLOW
-// ═══════════════════════════════════════════════════
-function loadQ(){
-  answered=false;
-  clearInterval(timerInterval);
-  const q=currentQuestions[currentQIdx];
-  const total=currentQuestions.length;
-  const sm=SECTION_META[q.section];
-  sectionScores[q.section].total++;
+function renderQ() {
+  answered = false;
+  clearInterval(timerInt);
 
-  document.getElementById('q-current').textContent=currentQIdx+1;
-  document.getElementById('q-num-label').textContent=`Question ${currentQIdx+1} of ${total}`;
-  document.getElementById('quiz-sec-indicator').textContent=sm.icon+' '+sm.label;
-  document.getElementById('quiz-sec-indicator').style.color=sm.color;
+  const q = questions[qIdx];
+  const sm = SEC[q.section];
+  secScores[q.section].total++;
 
-  const tag=document.getElementById('q-sec-tag');
-  tag.textContent=sm.icon+' '+sm.label;
-  tag.style.background=sm.bg; tag.style.color=sm.color;
+  document.getElementById('qz-cur').textContent = qIdx + 1;
+  document.getElementById('q-lbl').textContent = 'Question ' + (qIdx + 1) + ' of ' + questions.length;
+  document.getElementById('prog-fill').style.width = ((qIdx / questions.length) * 100) + '%';
 
-  document.getElementById('question-text').textContent=q.q;
-  document.getElementById('progress-fill').style.width=((currentQIdx/total)*100)+'%';
+  const tag = document.getElementById('q-tag');
+  tag.textContent = sm.icon + ' ' + sm.label;
+  tag.style.background = sm.bg;
+  tag.style.color = sm.color;
 
-  const letters=['A','B','C','D'];
-  document.getElementById('options-grid').innerHTML=q.options.map((opt,i)=>`
-    <button class="option-btn" id="opt-${i}" onclick="selectAnswer(${i})">
-      <span class="opt-letter">${letters[i]}</span>${opt}
+  document.getElementById('q-text').textContent = q.q;
+
+  const letters = ['A', 'B', 'C', 'D'];
+  document.getElementById('opts').innerHTML = q.opts.map((opt, i) => `
+    <button class="opt" id="opt-${i}" onclick="selectAnswer(${i})">
+      <span class="opt-ltr">${letters[i]}</span>${opt}
     </button>`).join('');
 
-  const fb=document.getElementById('feedback-box');
-  fb.className='feedback-box'; fb.innerHTML='';
-  document.getElementById('next-btn').className='next-btn';
+  const fb = document.getElementById('feedback');
+  fb.className = 'feedback';
+  fb.innerHTML = '';
+  document.getElementById('next-btn').className = 'next-btn';
+
   startTimer();
 }
 
-function startTimer(){
-  timeLeft=30;
-  const d=document.getElementById('timer-display');
-  d.textContent=timeLeft; d.className='timer-circle';
-  timerInterval=setInterval(()=>{
+function startTimer() {
+  timeLeft = 30;
+  const d = document.getElementById('timer');
+  d.textContent = timeLeft;
+  d.className = 'timer';
+
+  timerInt = setInterval(function() {
     timeLeft--;
-    d.textContent=timeLeft;
-    if(timeLeft<=5) d.className='timer-circle danger';
-    else if(timeLeft<=15) d.className='timer-circle warning';
-    if(timeLeft<=0){ clearInterval(timerInterval); handleTimeout(); }
-  },1000);
+    d.textContent = timeLeft;
+    if (timeLeft <= 5)  d.className = 'timer danger';
+    else if (timeLeft <= 15) d.className = 'timer warn';
+    if (timeLeft <= 0) {
+      clearInterval(timerInt);
+      handleTimeout();
+    }
+  }, 1000);
 }
 
-function selectAnswer(i){
-  if(answered)return;
-  answered=true;
-  clearInterval(timerInterval);
-  const q=currentQuestions[currentQIdx];
-  document.querySelectorAll('.option-btn').forEach(b=>b.disabled=true);
-  document.getElementById('timer-display').className='timer-circle';
-  document.getElementById('timer-display').textContent='✓';
+function selectAnswer(i) {
+  if (answered) return;
+  answered = true;
+  clearInterval(timerInt);
 
-  if(i===q.answer){
-    quizScore.correct++;
-    sectionScores[q.section].correct++;
-    document.getElementById(`opt-${i}`).classList.add('correct');
-    showFB('correct','✅ Correct! '+q.exp);
+  const q = questions[qIdx];
+  document.querySelectorAll('.opt').forEach(b => b.disabled = true);
+  document.getElementById('timer').className = 'timer';
+  document.getElementById('timer').textContent = '✓';
+
+  const fb = document.getElementById('feedback');
+  if (i === q.ans) {
+    score.correct++;
+    secScores[q.section].correct++;
+    document.getElementById('opt-' + i).classList.add('correct');
+    fb.className = 'feedback show fb-correct';
+    fb.innerHTML = '✅ Correct! ' + q.exp;
   } else {
-    quizScore.wrong++;
-    document.getElementById(`opt-${i}`).classList.add('wrong');
-    document.getElementById(`opt-${q.answer}`).classList.add('reveal');
-    showFB('wrong','❌ Incorrect. '+q.exp);
-    missedQuestions.push({q,selectedIdx:i,type:'wrong'});
+    score.wrong++;
+    document.getElementById('opt-' + i).classList.add('wrong');
+    document.getElementById('opt-' + q.ans).classList.add('reveal');
+    fb.className = 'feedback show fb-wrong';
+    fb.innerHTML = '❌ Incorrect. ' + q.exp;
+    missed.push({ q: q, sel: i, type: 'wrong' });
   }
-  document.getElementById('next-btn').className='next-btn show';
+  document.getElementById('next-btn').className = 'next-btn show';
 }
 
-function handleTimeout(){
-  if(answered)return;
-  answered=true;
-  quizScore.timeout++;
-  const q=currentQuestions[currentQIdx];
-  document.querySelectorAll('.option-btn').forEach(b=>b.disabled=true);
-  document.getElementById(`opt-${q.answer}`).classList.add('reveal');
-  showFB('timeout',`⏰ Time's up! Correct: ${q.options[q.answer]}. ${q.exp}`);
-  missedQuestions.push({q,selectedIdx:-1,type:'timeout'});
-  document.getElementById('next-btn').className='next-btn show';
+function handleTimeout() {
+  if (answered) return;
+  answered = true;
+  score.timeout++;
+  const q = questions[qIdx];
+  document.querySelectorAll('.opt').forEach(b => b.disabled = true);
+  document.getElementById('opt-' + q.ans).classList.add('reveal');
+  const fb = document.getElementById('feedback');
+  fb.className = 'feedback show fb-timeout';
+  fb.innerHTML = '⏰ Time\'s up! Correct: ' + q.opts[q.ans] + '. ' + q.exp;
+  missed.push({ q: q, sel: -1, type: 'timeout' });
+  document.getElementById('next-btn').className = 'next-btn show';
 }
 
-function showFB(type,msg){
-  const fb=document.getElementById('feedback-box');
-  fb.className=`feedback-box show fb-${type}`;
-  fb.innerHTML=msg;
+function nextQ() {
+  qIdx++;
+  if (qIdx >= questions.length) {
+    finishQuiz();
+  } else {
+    renderQ();
+  }
 }
 
-function nextQuestion(){
-  currentQIdx++;
-  if(currentQIdx>=currentQuestions.length) finishQuiz();
-  else loadQ();
-}
+// ═══════════════════════════════════════════════
+// FINISH
+// ═══════════════════════════════════════════════
+function finishQuiz() {
+  clearInterval(timerInt);
+  quizRunning = false;
 
-// ═══════════════════════════════════════════════════
-// FINISH & RESULT
-// ═══════════════════════════════════════════════════
-function finishQuiz(){
-  clearInterval(timerInterval);
-  const total=currentQuestions.length;
-  const pct=Math.round((quizScore.correct/total)*100);
+  const total = questions.length;
+  const pct = Math.round((score.correct / total) * 100);
 
-  // Build section score summary
-  const secSummary={};
-  Object.entries(sectionScores).forEach(([sec,data])=>{
-    secSummary[sec]={ correct:data.correct, total:data.total, pct:data.total>0?Math.round((data.correct/data.total)*100):0 };
+  // Build section scores summary
+  const ss = {};
+  Object.entries(secScores).forEach(function(entry) {
+    const sec = entry[0], data = entry[1];
+    ss[sec] = {
+      correct: data.correct,
+      total: data.total,
+      pct: data.total > 0 ? Math.round((data.correct / data.total) * 100) : 0
+    };
   });
 
-  saveScore(pct,total,secSummary);
+  // Update result UI
+  document.getElementById('prog-fill').style.width = '100%';
+  document.getElementById('res-name').textContent = TEAM[selIdx].name + ' — ' + CURRENT_EDITION;
+  document.getElementById('r-correct').textContent = score.correct;
+  document.getElementById('r-wrong').textContent = score.wrong;
+  document.getElementById('r-timeout').textContent = score.timeout;
 
-  document.getElementById('progress-fill').style.width='100%';
-  document.getElementById('result-name').textContent=TEAM[selectedMemberIdx].name+' — '+CURRENT_EDITION;
-  document.getElementById('r-correct').textContent=quizScore.correct;
-  document.getElementById('r-wrong').textContent=quizScore.wrong;
-  document.getElementById('r-timeout').textContent=quizScore.timeout;
-  document.getElementById('r-total').textContent=total;
+  const el = document.getElementById('res-pct');
+  el.textContent = pct + '%';
+  let grade, title, sub;
+  if (pct >= 80)      { grade = 'excellent'; title = '🏆 Outstanding!';  sub = 'Exceptional result. Strong grasp of this week\'s content.'; }
+  else if (pct >= 60) { grade = 'good';      title = '👍 Good Work!';    sub = 'Solid performance. Review your missed questions below.'; }
+  else if (pct >= 40) { grade = 'average';   title = '📖 Keep Learning!';sub = 'A fair attempt. Revisit the Deep Dives before next week.'; }
+  else                { grade = 'poor';      title = '💪 Keep Going!';   sub = 'This week\'s content needs more attention.'; }
 
-  const el=document.getElementById('result-pct');
-  el.textContent=pct+'%';
-  let grade,title,sub;
-  if(pct>=80){grade='excellent';title='🏆 Outstanding!';sub='Exceptional result. You have a strong grasp of this week\'s content.';}
-  else if(pct>=60){grade='good';title='👍 Good Work!';sub='Solid performance. Review your missed questions to strengthen your knowledge.';}
-  else if(pct>=40){grade='average';title='📖 Keep Learning!';sub='A fair attempt. Revisit the Deep Dive sections before next week\'s quiz.';}
-  else{grade='poor';title='💪 Keep Going!';sub='This week\'s content needs more attention. Re-read the Deep Dives carefully.';}
-  el.className='result-pct '+grade;
-  document.getElementById('result-title').textContent=title;
-  document.getElementById('result-sub').textContent=sub;
+  el.className = 'res-pct ' + grade;
+  document.getElementById('res-title').textContent = title;
+  document.getElementById('res-sub').textContent = sub;
 
-  // Section breakdown
-  renderSectionBreakdown(secSummary);
-  // Badges
-  renderBadgesResult();
-  // Missed questions
-  renderMissedQuestions();
+  // Render missed questions
+  renderMissed();
 
   showScreen('result');
+
+  // Save to Google Sheets
+  saveToSheet({
+    week: CURRENT_WEEK,
+    edition: CURRENT_EDITION,
+    member: TEAM[selIdx].name,
+    score: pct,
+    correct: score.correct,
+    wrong: score.wrong,
+    timeout: score.timeout,
+    violations: violations,
+    sectionScores: ss
+  });
 }
 
-// 5. SECTION-WISE BREAKDOWN
-function renderSectionBreakdown(secSummary){
-  const rows=Object.entries(SECTION_META).map(([sec,meta])=>{
-    const data=secSummary[sec]||{correct:0,total:0,pct:0};
-    const color=data.pct>=80?'#2e7d32':data.pct>=60?'#1a3a5c':data.pct>=40?'#c9963a':'#c62828';
-    return `<div class="sb-row">
-      <div class="sb-label">${meta.icon} ${meta.label}</div>
-      <div class="sb-bar-wrap"><div class="sb-bar" style="width:${data.pct}%;background:${color};"></div></div>
-      <div class="sb-score" style="color:${color};">${data.correct}/${data.total} &nbsp;(${data.pct}%)</div>
-    </div>`;
-  }).join('');
-  document.getElementById('sb-rows').innerHTML=rows;
-}
-
-// 2. BADGES for result screen
-function renderBadgesResult(){
-  const allScores=getAllScores();
-  const member=TEAM[selectedMemberIdx];
-  const weekScores=allScores.filter(s=>s.weekKey===CURRENT_WEEK_KEY);
-  const grid=document.getElementById('badges-grid-result');
-  grid.innerHTML=BADGE_DEFS.map(b=>{
-    const earned=b.check(allScores,member,weekScores);
-    return `<div class="badge ${earned?'earned':'locked'}">
-      <span class="badge-icon">${b.icon}</span>
-      <span>${b.label}${earned?'':' 🔒'}</span>
-    </div>`;
-  }).join('');
-}
-
-// 3. MISSED QUESTIONS REVIEW
-function renderMissedQuestions(){
-  const container=document.getElementById('missed-items');
-  if(missedQuestions.length===0){
-    container.innerHTML=`<div style="text-align:center;padding:24px;color:var(--success);font-weight:600;">🎉 Perfect! You answered all questions correctly!</div>`;
+// ═══════════════════════════════════════════════
+// MISSED QUESTIONS REVIEW
+// ═══════════════════════════════════════════════
+function renderMissed() {
+  const container = document.getElementById('missed-section');
+  if (missed.length === 0) {
+    container.innerHTML = '<div style="text-align:center;padding:20px;color:var(--success);font-weight:600;margin-top:16px;border-top:2px solid var(--rule);">🎉 Perfect! You answered every question correctly!</div>';
     return;
   }
-  const letters=['A','B','C','D'];
-  container.innerHTML=missedQuestions.map((item,i)=>{
-    const {q,selectedIdx,type}=item;
-    const sm=SECTION_META[q.section];
-    const yourAns=selectedIdx>=0?`Your answer: ${letters[selectedIdx]}. ${q.options[selectedIdx]}`:'You did not answer (timeout)';
-    return `
-    <div class="missed-item">
-      <div class="missed-item-header">
-        <span class="missed-q-num">Missed Q${i+1}</span>
-        <span class="missed-sec-tag" style="background:${sm.bg};color:${sm.color};">${sm.icon} ${sm.label}</span>
-        <span class="missed-status" style="color:${type==='timeout'?'#b35f00':'var(--danger)'};">${type==='timeout'?'⏰ Timeout':'❌ Wrong'}</span>
-      </div>
-      <div class="missed-item-body">
-        <div class="missed-question">${q.q}</div>
-        <div class="missed-your-ans">❌ ${yourAns}</div>
-        <div class="missed-correct-ans">✅ Correct answer: ${letters[q.answer]}. ${q.options[q.answer]}</div>
-        <div class="missed-exp">💡 ${q.exp}</div>
-      </div>
-    </div>`;
-  }).join('');
-}
-
-function scrollToReview(){
-  document.getElementById('missed-section').scrollIntoView({behavior:'smooth',block:'start'});
-}
-
-// ═══════════════════════════════════════════════════
-// SCORE STORAGE
-// ═══════════════════════════════════════════════════
-function saveScore(pct,total,secSummary){
-  const all=getAllScores();
-  all.unshift({
-    weekKey:CURRENT_WEEK_KEY, weekLabel:CURRENT_WEEK_LABEL, edition:CURRENT_EDITION,
-    member:TEAM[selectedMemberIdx].name, short:TEAM[selectedMemberIdx].short,
-    avatar:TEAM[selectedMemberIdx].avatar,
-    score:pct, correct:quizScore.correct, wrong:quizScore.wrong,
-    timeout:quizScore.timeout, total:total, sectionScores:secSummary,
-    ts:new Date().toLocaleString('en-IN',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'})
+  const letters = ['A','B','C','D'];
+  let html = '<div class="missed-title">📝 Missed Questions (' + missed.length + ')</div>';
+  missed.forEach(function(item, i) {
+    const sm = SEC[item.q.section];
+    const yours = item.sel >= 0
+      ? 'Your answer: ' + letters[item.sel] + '. ' + item.q.opts[item.sel]
+      : 'No answer (timeout)';
+    html += `
+      <div class="missed-item">
+        <div class="mi-head">
+          <span class="mi-num">Missed ${i+1}</span>
+          <span class="mi-tag" style="background:${sm.bg};color:${sm.color};">${sm.icon} ${sm.label}</span>
+          <span class="mi-type" style="color:${item.type==='timeout'?'#b35f00':'var(--danger)'};">${item.type==='timeout'?'⏰ Timeout':'❌ Wrong'}</span>
+        </div>
+        <div class="mi-body">
+          <div class="mi-q">${item.q.q}</div>
+          <div class="mi-yours">❌ ${yours}</div>
+          <div class="mi-right">✅ Correct: ${letters[item.q.ans]}. ${item.q.opts[item.q.ans]}</div>
+          <div class="mi-exp">💡 ${item.q.exp}</div>
+        </div>
+      </div>`;
   });
-  localStorage.setItem('tp_scores',JSON.stringify(all));
+  container.innerHTML = html;
 }
 
-function getAllScores(){ try{return JSON.parse(localStorage.getItem('tp_scores')||'[]');}catch{return[];} }
+// ═══════════════════════════════════════════════
+// GOOGLE SHEETS INTEGRATION
+// ═══════════════════════════════════════════════
+function saveToSheet(data) {
+  const statusEl = document.getElementById('sync-status');
+  statusEl.className = 'sync-status syncing';
+  statusEl.textContent = '⏳ Saving your score to central database...';
 
-function clearScores(){
-  if(confirm('Clear ALL scores for ALL weeks? This cannot be undone.')){
-    localStorage.removeItem('tp_scores');
-    renderScorecard();
+  if (SHEET_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+    statusEl.className = 'sync-status failed';
+    statusEl.textContent = '⚠️ Setup required: Please configure Google Sheets URL (see setup guide below).';
+    return;
   }
+
+  fetch(SHEET_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  }).then(function() {
+    statusEl.className = 'sync-status synced';
+    statusEl.textContent = '✅ Score saved successfully to central database!';
+  }).catch(function(err) {
+    statusEl.className = 'sync-status failed';
+    statusEl.textContent = '❌ Save failed. Please check internet connection or Google Sheets setup.';
+    console.error('Sheet save error:', err);
+  });
 }
 
-// ═══════════════════════════════════════════════════
-// ADMIN & SCORECARD
-// ═══════════════════════════════════════════════════
-function adminLogin(){
-  if(document.getElementById('admin-pwd').value.trim()===ADMIN_PASSWORD){
-    adminLoggedIn=true;
-    sessionStorage.setItem('tp_admin','1');
-    document.getElementById('admin-gate').style.display='none';
-    document.getElementById('scorecard-content').style.display='block';
-    renderScorecard();
+function loadFromSheet(weekFilter, callback) {
+  if (SHEET_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+    callback([]);
+    return;
+  }
+  fetch(SHEET_URL + '?week=' + encodeURIComponent(weekFilter))
+    .then(function(r) { return r.json(); })
+    .then(function(res) { callback(res.data || []); })
+    .catch(function() { callback([]); });
+}
+
+// ═══════════════════════════════════════════════
+// ADMIN & SCOREBOARD
+// ═══════════════════════════════════════════════
+function adminLogin() {
+  const pwd = document.getElementById('admin-pwd').value.trim();
+  if (pwd === ADMIN_PASSWORD) {
+    adminIn = true;
+    sessionStorage.setItem('tp_admin', '1');
+    document.getElementById('admin-login-wrap').style.display = 'none';
+    document.getElementById('sc-content').style.display = 'block';
+    loadScoreboard();
   } else {
-    document.getElementById('admin-error').classList.add('show');
-    document.getElementById('admin-pwd').value='';
+    document.getElementById('admin-err').classList.add('show');
+    document.getElementById('admin-pwd').value = '';
   }
 }
 
-function adminLogout(){
-  adminLoggedIn=false;
+function adminLogout() {
+  adminIn = false;
   sessionStorage.removeItem('tp_admin');
-  document.getElementById('admin-gate').style.display='block';
-  document.getElementById('scorecard-content').style.display='none';
-  document.getElementById('admin-pwd').value='';
-  document.getElementById('admin-error').classList.remove('show');
+  document.getElementById('admin-login-wrap').style.display = 'block';
+  document.getElementById('sc-content').style.display = 'none';
+  document.getElementById('admin-pwd').value = '';
+  document.getElementById('admin-err').classList.remove('show');
 }
 
-function renderScorecard(){
-  const all=getAllScores();
-  const weekMap={};
-  all.forEach(s=>{ weekMap[s.weekKey]=s.weekLabel; });
-  weekMap[CURRENT_WEEK_KEY]=CURRENT_WEEK_LABEL;
-  const weekKeys=Object.keys(weekMap).sort().reverse();
-  if(!weekKeys.includes(activeWeekKey)) activeWeekKey=weekKeys[0]||CURRENT_WEEK_KEY;
+function loadScoreboard() {
+  document.getElementById('rank-tbody').innerHTML = '<tr><td colspan="8" class="no-data">⏳ Loading scores from database...</td></tr>';
+
+  loadFromSheet('', function(allRows) {
+    if (allRows.length === 0 && SHEET_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+      renderScoreboardUI([]);
+      return;
+    }
+    renderScoreboardUI(allRows);
+  });
+}
+
+function renderScoreboardUI(rows) {
+  // Build week list from data
+  const weekSet = {};
+  rows.forEach(function(r) {
+    if (r.Week) weekSet[r.Week] = true;
+  });
+  weekSet[CURRENT_WEEK] = true; // always show current week
+  const weeks = Object.keys(weekSet).sort().reverse();
 
   // Week tabs
-  document.getElementById('week-tabs').innerHTML=weekKeys.map(wk=>`
-    <button class="week-tab ${wk===activeWeekKey?'active':''}" onclick="switchWeekTab('${wk}')">
-      ${weekMap[wk]||wk}
-    </button>`).join('')||'<div style="padding:10px 18px;font-family:\'DM Mono\',monospace;font-size:11px;color:var(--muted);">No attempts yet</div>';
-
-  const weekScores=all.filter(s=>s.weekKey===activeWeekKey);
-  const wLabel=weekMap[activeWeekKey]||activeWeekKey;
-  document.getElementById('sc-week-label').textContent=wLabel;
-  document.getElementById('sb-sc-week-label').textContent=wLabel;
-  document.getElementById('ct-week-label').textContent=wLabel;
-
-  // 4. COMPLETION TRACKER
-  document.getElementById('ct-grid').innerHTML=TEAM.map(m=>{
-    const attempt=weekScores.find(s=>s.member===m.name);
-    return `<div class="ct-card ${attempt?'done':'pending'}">
-      <span class="ct-avatar">${m.avatar}</span>
-      <div class="ct-name">${m.short}</div>
-      <div class="ct-status">${attempt?'✅ Done':'⏳ Pending'}</div>
-      ${attempt?`<div class="ct-score-small">Score: ${attempt.score}%</div>`:'<div class="ct-score-small">Not attempted</div>'}
-    </div>`;
-  }).join('');
-
-  // Member summary cards
-  const memberMap={};
-  TEAM.forEach(m=>{ memberMap[m.name]={scores:[],avatar:m.avatar,short:m.short}; });
-  weekScores.forEach(s=>{ if(memberMap[s.member]) memberMap[s.member].scores.push(s.score); });
-  document.getElementById('member-cards').innerHTML=Object.entries(memberMap).map(([name,data])=>{
-    const avg=data.scores.length?Math.round(data.scores.reduce((a,b)=>a+b,0)/data.scores.length):null;
-    const col=avg===null?'var(--muted)':avg>=80?'var(--success)':avg>=60?'var(--deep)':avg>=40?'var(--gold)':'var(--danger)';
-    return `<div class="member-card">
-      <div class="mc-avatar">${data.avatar}</div>
-      <div class="mc-name">${data.short}</div>
-      ${avg!==null
-        ?`<span class="mc-score" style="color:${col};">${avg}%</span><span class="mc-label">Avg Score</span><div class="mc-attempts">${data.scores.length} attempt${data.scores.length>1?'s':''}</div>`
-        :`<span class="mc-score" style="color:var(--muted);">—</span><span class="mc-label">No attempt yet</span>`}
-    </div>`;
-  }).join('');
-
-  // 1. PROGRESS TRACKER — member selector
-  const pmSel=document.getElementById('progress-member-select');
-  pmSel.innerHTML=TEAM.map((m,i)=>`
-    <button class="pm-btn ${i===chartMemberIdx?'active':''}" onclick="switchChartMember(${i})">${m.avatar} ${m.short}</button>`).join('');
-  renderProgressChart(all);
-
-  // 5. SECTION-WISE BREAKDOWN TABLE
-  const sbRows=TEAM.map(m=>{
-    const attempt=weekScores.find(s=>s.member===m.name);
-    if(!attempt||!attempt.sectionScores) return `<tr><td><strong>${m.avatar} ${m.short}</strong></td>${Object.keys(SECTION_META).map(()=>'<td style="color:var(--muted);">—</td>').join('')}<td>—</td></tr>`;
-    const ss=attempt.sectionScores;
-    const cells=Object.keys(SECTION_META).map(sec=>{
-      const d=ss[sec]||{correct:0,total:0,pct:0};
-      const col=d.pct>=80?'#2e7d32':d.pct>=60?'#1a3a5c':d.pct>=40?'#c9963a':'#c62828';
-      return `<td>
-        <div class="mini-bar-wrap"><div class="mini-bar" style="width:${d.pct}%;background:${col};"></div></div>
-        <span style="font-size:12px;font-weight:700;color:${col};">${d.correct}/${d.total}</span>
-      </td>`;
+  const tabsEl = document.getElementById('week-tabs');
+  if (weeks.length === 0) {
+    tabsEl.innerHTML = '<div style="padding:9px 16px;font-family:\'DM Mono\',monospace;font-size:11px;color:var(--muted);">No data yet</div>';
+  } else {
+    tabsEl.innerHTML = weeks.map(function(w) {
+      return '<button class="week-tab' + (w === activeWeekTab ? ' active' : '') + '" onclick="switchWeekTab(\'' + w + '\')">' + w + '</button>';
     }).join('');
-    const sc=attempt.score;
-    const scol=sc>=80?'#2e7d32':sc>=60?'#1a3a5c':sc>=40?'#c9963a':'#c62828';
-    return `<tr><td><strong>${m.avatar} ${m.short}</strong></td>${cells}<td><strong style="color:${scol};">${sc}%</strong></td></tr>`;
-  }).join('');
-  document.getElementById('sb-sc-tbody').innerHTML=sbRows||`<tr><td colspan="7" class="no-data">No attempts yet for this week.</td></tr>`;
+  }
 
-  // 2. BADGES in scorecard
-  const badgesHTML=TEAM.map(m=>{
-    const earned=BADGE_DEFS.filter(b=>b.check(all,m,weekScores));
-    return `<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;">
-      <span style="font-weight:700;font-size:13px;width:110px;flex-shrink:0;">${m.avatar} ${m.short}</span>
-      ${earned.length
-        ?earned.map(b=>`<span class="badge earned" title="${b.desc}"><span class="badge-icon">${b.icon}</span>${b.label}</span>`).join('')
-        :`<span style="font-size:12px;color:var(--muted);font-style:italic;">No badges earned yet</span>`}
-    </div>`;
-  }).join('');
-  document.getElementById('scorecard-badges').innerHTML=badgesHTML;
+  // Filter rows for active week
+  const weekRows = rows.filter(function(r) { return r.Week === activeWeekTab; });
+  document.getElementById('sc-week-lbl').textContent = activeWeekTab;
 
-  // Detailed log
-  if(weekScores.length===0){
-    document.getElementById('score-tbody').innerHTML=`<tr><td colspan="7" class="no-data">No attempts this week yet.</td></tr>`;
+  // Completion tracker
+  const compEl = document.getElementById('comp-grid');
+  compEl.innerHTML = TEAM.map(function(m) {
+    const att = weekRows.find(function(r) { return r.Member === m.name; });
+    return '<div class="comp-item' + (att ? ' done' : '') + '">' +
+      '<span class="comp-av">' + m.avatar + '</span>' +
+      '<span class="comp-name">' + m.short + '</span>' +
+      '<div class="comp-status">' + (att ? '✅ Done' : '⏳ Pending') + '</div>' +
+      '<span class="comp-score">' + (att ? 'Score: ' + att.Score + '%  ⚠️' + (att.Violations||0) : 'Not attempted') + '</span>' +
+      '</div>';
+  }).join('');
+
+  // Rankings — sort by score descending
+  const sorted = weekRows.slice().sort(function(a, b) { return (b.Score || 0) - (a.Score || 0); });
+
+  if (sorted.length === 0) {
+    document.getElementById('rank-tbody').innerHTML = '<tr><td colspan="8" class="no-data">' +
+      (SHEET_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE'
+        ? '⚙️ Google Sheets not configured yet. See setup guide below.'
+        : '📭 No quiz attempts recorded for ' + activeWeekTab + ' yet.') +
+      '</td></tr>';
     return;
   }
-  document.getElementById('score-tbody').innerHTML=weekScores.map((s,i)=>{
-    const cls=s.score>=80?'sp-excellent':s.score>=60?'sp-good':s.score>=40?'sp-average':'sp-poor';
-    return `<tr>
-      <td style="color:var(--muted);font-family:'DM Mono',monospace;font-size:11px;">${i+1}</td>
-      <td><strong>${s.avatar} ${s.member}</strong></td>
-      <td><span class="score-pill ${cls}">${s.score}%</span></td>
-      <td style="color:var(--success);">✅ ${s.correct}</td>
-      <td style="color:var(--danger);">❌ ${s.wrong}</td>
-      <td style="color:#b35f00;">⏰ ${s.timeout}</td>
-      <td style="font-size:12px;color:var(--muted);">${s.ts}</td>
-    </tr>`;
+
+  document.getElementById('rank-tbody').innerHTML = sorted.map(function(r, i) {
+    const rank = i + 1;
+    const rankClass = rank === 1 ? 'r1' : rank === 2 ? 'r2' : rank === 3 ? 'r3' : 'rn';
+    const medal = rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : rank;
+    const sc = parseInt(r.Score) || 0;
+    const cls = sc >= 80 ? 'sp-e' : sc >= 60 ? 'sp-g' : sc >= 40 ? 'sp-a' : 'sp-p';
+    const viol = parseInt(r.Violations) || 0;
+    return '<tr>' +
+      '<td><span class="rank-badge ' + rankClass + '">' + medal + '</span></td>' +
+      '<td><strong>' + (r.Member || '—') + '</strong></td>' +
+      '<td><span class="score-pill ' + cls + '">' + sc + '%</span></td>' +
+      '<td style="color:var(--success)">✅ ' + (r.Correct || 0) + '</td>' +
+      '<td style="color:var(--danger)">❌ ' + (r.Wrong || 0) + '</td>' +
+      '<td style="color:#b35f00">⏰ ' + (r.Timeout || 0) + '</td>' +
+      '<td style="color:' + (viol > 0 ? 'var(--danger)' : 'var(--muted)') + '">⚠️ ' + viol + '</td>' +
+      '<td style="font-size:11px;color:var(--muted)">' + (r.Timestamp || '—') + '</td>' +
+      '</tr>';
   }).join('');
 }
 
-// 1. PROGRESS CHART
-function renderProgressChart(all){
-  const member=TEAM[chartMemberIdx];
-  const memberScores=all.filter(s=>s.member===member.name).sort((a,b)=>a.weekKey.localeCompare(b.weekKey));
-  const chart=document.getElementById('chart-bars');
-  if(memberScores.length===0){
-    chart.innerHTML=`<div class="chart-no-data">No quiz attempts yet for ${member.short}.</div>`;
-    return;
-  }
-  const maxH=100;
-  chart.innerHTML=memberScores.map(s=>{
-    const h=Math.max((s.score/100)*maxH,4);
-    const col=s.score>=80?'var(--success)':s.score>=60?'var(--deep)':s.score>=40?'var(--gold)':'var(--danger)';
-    return `<div class="chart-bar-col">
-      <div class="chart-bar" style="height:${h}px;background:${col};">
-        <span class="chart-bar-val" style="color:${col};">${s.score}%</span>
-      </div>
-      <div class="chart-bar-label">${s.weekLabel||s.weekKey}</div>
-    </div>`;
-  }).join('');
+function switchWeekTab(week) {
+  activeWeekTab = week;
+  loadScoreboard();
 }
 
-function switchChartMember(i){
-  chartMemberIdx=i;
-  document.querySelectorAll('.pm-btn').forEach((b,idx)=>b.classList.toggle('active',idx===i));
-  renderProgressChart(getAllScores());
+// ═══════════════════════════════════════════════
+// SCREEN NAVIGATION
+// ═══════════════════════════════════════════════
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(function(s) { s.classList.remove('active'); });
+  document.getElementById('screen-' + id).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function switchWeekTab(wk){
-  activeWeekKey=wk;
-  renderScorecard();
-}
+function goTo(target) {
+  document.getElementById('nav-quiz').classList.toggle('active', target === 'setup' || target === 'quiz');
+  document.getElementById('nav-board').classList.toggle('active', target === 'scoreboard');
+  document.getElementById('setup-guide').style.display = target === 'scoreboard' ? 'none' : 'block';
 
-// ═══════════════════════════════════════════════════
-// SCREEN / NAV
-// ═══════════════════════════════════════════════════
-function showScreen(id){
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  document.getElementById('screen-'+id).classList.add('active');
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-
-function showNav(target){
-  document.getElementById('nav-quiz').classList.toggle('active',target==='login'||target==='quiz');
-  document.getElementById('nav-score').classList.toggle('active',target==='scorecard');
-  if(target==='scorecard'){
-    showScreen('scorecard');
-    if(adminLoggedIn){
-      document.getElementById('admin-gate').style.display='none';
-      document.getElementById('scorecard-content').style.display='block';
-      renderScorecard();
+  if (target === 'scoreboard') {
+    showScreen('scoreboard');
+    if (adminIn) {
+      document.getElementById('admin-login-wrap').style.display = 'none';
+      document.getElementById('sc-content').style.display = 'block';
+      loadScoreboard();
     } else {
-      document.getElementById('admin-gate').style.display='block';
-      document.getElementById('scorecard-content').style.display='none';
+      document.getElementById('admin-login-wrap').style.display = 'block';
+      document.getElementById('sc-content').style.display = 'none';
     }
-  } else { showScreen('login'); }
+  } else {
+    showScreen('setup');
+  }
 }
 
-// ═══════════════════════════════════════════════════
+// ═══════════════════════════════════════════════
 // UTILS
-// ═══════════════════════════════════════════════════
-function shuffle(arr){
-  for(let i=arr.length-1;i>0;i--){
-    const j=Math.floor(Math.random()*(i+1));
-    [arr[i],arr[j]]=[arr[j],arr[i]];
+// ═══════════════════════════════════════════════
+function shuffle(arr) {
+  for (var i = arr.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
   }
 }
 </script>
