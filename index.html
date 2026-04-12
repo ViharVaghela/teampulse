@@ -170,7 +170,7 @@ body{background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;f
 </header>
 
 <div class="edition-bar">
-  <span>📅 Edition 002 · 06 – 12 Apr 2026 <span class="live-badge">● LIVE</span></span>
+  <span>📅 Edition 003 · 13 – 19 Apr 2026 <span class="live-badge">● LIVE</span></span>
   <span>📚 All editions stored below</span>
   <a href="quiz.html" style="background:var(--gold);color:var(--ink);font-family:'DM Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.12em;padding:5px 14px;border-radius:2px;text-decoration:none;text-transform:uppercase;">📝 Take Weekly Quiz</a>
 </div>
@@ -181,9 +181,13 @@ body{background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;f
     <span class="week-label">Edition 001</span>
     <span class="week-date">30 Mar – 05 Apr 2026</span>
   </button>
-  <button class="archive-btn current" id="arc-week2" onclick="switchWeek('week2',this)">
-    <span class="week-label">Edition 002 <span class="new-dot"></span></span>
+  <button class="archive-btn" id="arc-week2" onclick="switchWeek('week2',this)">
+    <span class="week-label">Edition 002</span>
     <span class="week-date">06 – 12 Apr 2026</span>
+  </button>
+  <button class="archive-btn current" id="arc-week3" onclick="switchWeek('week3',this)">
+    <span class="week-label">Edition 003 <span class="new-dot"></span></span>
+    <span class="week-date">13 – 19 Apr 2026</span>
   </button>
 </div>
 
@@ -462,7 +466,7 @@ body{background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;f
 <!-- ══════════════════════════════════════════════════════
      WEEK 2 — EDITION 002 · 06–12 April 2026
 ══════════════════════════════════════════════════════ -->
-<div class="week-view active" id="week2">
+<div class="week-view" id="week2">
 <div class="wrapper">
 
   <div class="week-banner">
@@ -787,13 +791,323 @@ body{background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;f
 </div></div><!-- wrapper, week2 -->
 </main>
 
+<!-- ══════════════════════════════════════════════════════
+     WEEK 3 — EDITION 003 · 13–19 April 2026
+══════════════════════════════════════════════════════ -->
+<div class="week-view active" id="week3">
+<div class="wrapper">
+
+  <div class="week-banner">
+    <div>
+      <div class="week-banner-edition">Edition 003 · Current Week</div>
+      <div class="week-banner-title">13 April – 19 April 2026</div>
+    </div>
+    <div class="week-banner-right">
+      <span class="week-banner-date">Week 3 of TeamPulse</span>
+      <span class="current-tag">● This Week's Edition</span>
+    </div>
+  </div>
+
+  <!-- ══ PROCUREMENT W3 ══ -->
+  <div class="section-panel active" id="w3-procurement">
+    <div class="section-header"><span class="section-icon">🛒</span><h2 class="section-title">Procurement & Sourcing</h2></div>
+    <div class="content-tabs">
+      <button class="ctab-btn deep active" onclick="switchContent(this,'w3-proc-deep','w3-proc-market')"><span class="ctab-icon">📘</span><span>Deep Dive<span class="ctab-sub">Core Knowledge</span></span></button>
+      <button class="ctab-btn market" onclick="switchContent(this,'w3-proc-market','w3-proc-deep')"><span class="ctab-icon">🌐</span><span>Market Pulse<span class="ctab-sub">Industry Trends</span></span></button>
+    </div>
+    <div class="content-pane active" id="w3-proc-deep">
+      <div class="deep-hero"><div class="deep-hero-label">📘 Deep Dive · Week 3 · Procurement</div><div class="deep-hero-title">Contract Types — Rate Contract, AMC, Turnkey, BOQ, Spot Purchase & More</div><div class="deep-hero-intro">Choosing the wrong contract type is one of the most common and costly mistakes in procurement. Each contract type allocates risk differently between buyer and seller, has a different payment mechanism, and suits different procurement situations. Mastering contract types gives you the right tool for every procurement scenario.</div></div>
+      <div class="deep-grid">
+
+        <div class="deep-card"><div class="deep-card-num">Type 01</div><div class="deep-card-title">Rate Contract (RC)</div><div class="deep-card-body">A pre-agreed rate for goods or services over a defined period, without committing to a fixed quantity. The buyer orders as and when required at the contracted rate.<br><br><strong>Key features:</strong><ul><li>Rate is fixed — quantity is variable</li><li>Typically 1–3 year duration</li><li>No obligation to purchase minimum quantity (unless specified)</li><li>Ideal for items with regular but unpredictable demand</li></ul><strong>Best used for:</strong> Stationery, consumables, standard spare parts, fuel, utilities, common services.<div class="deep-example"><strong>Real Example</strong>You finalise a Rate Contract with a supplier for industrial gloves at ₹85/pair for 12 months. Whenever your store needs gloves, they raise a PO at this rate — no fresh tendering needed for every order.</div></div></div>
+
+        <div class="deep-card"><div class="deep-card-num">Type 02</div><div class="deep-card-title">Annual Maintenance Contract (AMC)</div><div class="deep-card-body">A contract for ongoing maintenance of equipment, systems, or infrastructure for a fixed annual fee — covering preventive and corrective maintenance.<br><br><strong>Two types:</strong><ul><li><strong>Comprehensive AMC:</strong> Covers parts AND labour. Higher cost but zero surprise bills.</li><li><strong>Non-Comprehensive AMC:</strong> Covers labour only. Parts billed separately. Lower base cost but unpredictable total spend.</li></ul><strong>Best used for:</strong> Machinery, HVAC, IT systems, lifts, electrical panels, fire systems, vehicles.<div class="deep-example"><strong>Real Example</strong>Your plant has 12 CNC machines. A Comprehensive AMC at ₹8 lakh/year with the OEM covers all breakdowns, parts, and 4 preventive services — predictable cost, zero production surprise stoppages from maintenance costs.</div></div></div>
+
+        <div class="deep-card"><div class="deep-card-num">Type 03</div><div class="deep-card-title">Turnkey Contract</div><div class="deep-card-body">The contractor takes <strong>complete end-to-end responsibility</strong> — from design and engineering to procurement, construction, commissioning, and handover. The buyer receives a fully operational facility by "turning the key."<br><br><strong>Key features:</strong><ul><li>Single point of responsibility — one contractor, one contract</li><li>Lump sum price agreed upfront — minimal cost surprises</li><li>Buyer has minimal involvement during execution</li><li>Contractor bears full performance and delivery risk</li></ul><strong>Best used for:</strong> Greenfield plants, substations, large capital projects, EPC works.<div class="deep-example"><strong>Real Example</strong>You award a Turnkey contract for a new water treatment plant at ₹25 crore. The contractor designs, procures equipment, builds, commissions, and hands you a running plant. You only pay milestones — not daily decisions.</div></div></div>
+
+        <div class="deep-card"><div class="deep-card-num">Type 04</div><div class="deep-card-title">BOQ Contract (Bill of Quantities)</div><div class="deep-card-body">A document listing all work items with quantities and units. Contractors quote their <strong>unit rate against each BOQ item</strong>. Payment is made for actual measured work at quoted rates.<br><br><strong>Key features:</strong><ul><li>Quantities in BOQ are approximate — actual quantities measured during execution</li><li>Risk of quantity variation shared between buyer and contractor</li><li>Transparent — easy to compare competing bids item by item</li><li>Payment based on measurement and certification</li></ul><strong>Best used for:</strong> Civil works, construction, road projects, where exact quantities cannot be determined upfront.<div class="deep-example"><strong>Real Example</strong>You float a BOQ for road repair: Item A — pothole filling (Rate: ₹800/sqm). Contractor quotes against each item. Payment made monthly on measured completed quantities. Final bill varies from estimate depending on actual work done.</div></div></div>
+
+        <div class="deep-card"><div class="deep-card-num">Type 05</div><div class="deep-card-title">Spot Purchase</div><div class="deep-card-body">A one-time purchase made for an <strong>immediate, specific requirement</strong> — usually without a long-term agreement. Price negotiated for that transaction only.<br><br><strong>Key features:</strong><ul><li>No advance commitment — maximum flexibility</li><li>Price reflects current market rate — can be high or low</li><li>Higher admin cost per transaction (fresh quotation each time)</li><li>No supplier relationship obligation</li></ul><strong>Best used for:</strong> Emergency purchases, non-recurring items, market testing, commodity opportunistic buying.<div class="deep-example"><strong>Real Example</strong>A critical pump seal fails. No Rate Contract exists for this specific seal. You get 3 emergency quotes and award a Spot Purchase to the fastest supplier at ₹4,200 — regardless of whether it is the cheapest.</div></div></div>
+
+        <div class="deep-card"><div class="deep-card-num">Quick Guide</div><div class="deep-card-title">Which Contract Type for Which Situation?</div><div class="deep-card-body">
+          <strong>Rate Contract:</strong> Regular items, variable quantity, known rate needed<br>
+          <strong>AMC:</strong> Ongoing maintenance of equipment or systems<br>
+          <strong>Turnkey:</strong> Large capital project, full outsourcing of design + build + commission<br>
+          <strong>BOQ:</strong> Civil/construction work where quantities are approximate<br>
+          <strong>Spot Purchase:</strong> One-time, emergency, or non-recurring needs<br><br>
+          <div class="deep-example"><strong>The Procurement Professional's Rule</strong>Never use a Spot Purchase for something you buy regularly — that's a Rate Contract opportunity. Never use a Rate Contract for a large capital project — that's a Turnkey or BOQ situation. Match the contract type to the nature of the requirement.</div>
+        </div></div>
+      </div>
+      <div class="deep-summary"><strong>🎯 Key Takeaway for Your Team</strong>Every procurement requirement has a contract type that fits it best. Using the wrong type costs money — either through missed leverage (should have had a Rate Contract), unpredictable cost (should have been Comprehensive AMC), or poor risk allocation (Turnkey gives you accountability, BOQ shares quantity risk). Your first question before any new procurement should be: "What type of contract best fits this requirement?" — not "who is the cheapest supplier."</div>
+    </div>
+    <div class="content-pane" id="w3-proc-market">
+      <div class="market-hero"><div class="market-hero-label">🌐 Market Pulse · Week 3 · Procurement</div><div class="market-hero-title">Long-Term Contracts Are Making a Comeback as Tariff Volatility Bites</div><div class="market-hero-intro">After years of "lean" procurement favouring spot buying and short-term flexibility, 2026 is seeing a major reversal. Procurement teams are signing longer Rate Contracts and multi-year AMCs as protection against price volatility and supply uncertainty.</div></div>
+      <div class="stat-row">
+        <div class="stat-box"><span class="stat-number">68%</span><span class="stat-label">of procurement leaders increased contract duration in 2025–26 to hedge against price volatility — McKinsey</span></div>
+        <div class="stat-box"><span class="stat-number">3.2×</span><span class="stat-label">higher cost per transaction for Spot Purchases vs Rate Contract orders — industry benchmark</span></div>
+        <div class="stat-box"><span class="stat-number">40%</span><span class="stat-label">of procurement teams now include price escalation clauses in multi-year contracts — up from 18% in 2023</span></div>
+      </div>
+      <div class="market-card"><div class="market-card-label">🌐 Global Insight</div><div class="market-card-title">The Rise of "Hybrid Contracts" — Combining Fixed Rate with Commodity Indexing</div><div class="market-card-body">Leading procurement teams globally are evolving beyond standard Rate Contracts toward hybrid structures that combine a fixed base rate with an index-linked escalation clause. This means the contracted rate adjusts automatically based on a published commodity index — protecting both buyer and supplier from extreme market movements without requiring full renegotiation.<br><br>What's changing in contract strategy globally:<ul><li><strong>Price escalation clauses</strong> are now standard in multi-year contracts for steel, aluminium, fuel, and polymers</li><li><strong>Force Majeure clauses</strong> are being rewritten post-COVID to explicitly include tariff changes, port closures, and geopolitical events</li><li><strong>Turnkey contracts</strong> for energy infrastructure are seeing the fastest growth — driven by solar, green hydrogen, and grid modernisation projects globally</li></ul></div><div class="source-note">Source: McKinsey Procurement Survey 2026 · Amazon Business Procurement Contract Guide · Kearney Foresight 2026</div></div>
+      <div class="action-box"><strong>📌 What This Means for Your Team</strong><ul><li>Review your top 10 frequently purchased items — do you have Rate Contracts for all of them? Any that are still being bought on Spot Purchase should be converted to Rate Contracts this quarter.</li><li>For any multi-year contract being renewed, ask: "Should we include a price escalation clause?" For commodity-linked items, the answer is almost always yes.</li><li>Check all your AMCs — are they Comprehensive or Non-Comprehensive? If Non-Comprehensive, calculate what you actually spent on parts last year and compare it to the Comprehensive AMC cost. The answer may surprise you.</li></ul></div>
+    </div>
+  </div><!-- end w3-procurement -->
+
+  <!-- ══ LOGISTICS W3 ══ -->
+  <div class="section-panel" id="w3-logistics">
+    <div class="section-header"><span class="section-icon">🚚</span><h2 class="section-title">Logistics & Supply Chain</h2></div>
+    <div class="content-tabs">
+      <button class="ctab-btn deep active" onclick="switchContent(this,'w3-log-deep','w3-log-market')"><span class="ctab-icon">📘</span><span>Deep Dive<span class="ctab-sub">Core Knowledge</span></span></button>
+      <button class="ctab-btn market" onclick="switchContent(this,'w3-log-market','w3-log-deep')"><span class="ctab-icon">🌐</span><span>Market Pulse<span class="ctab-sub">Industry Trends</span></span></button>
+    </div>
+    <div class="content-pane active" id="w3-log-deep">
+      <div class="deep-hero"><div class="deep-hero-label">📘 Deep Dive · Week 3 · Logistics</div><div class="deep-hero-title">Customs Clearance — Complete Import/Export Process Guide</div><div class="deep-hero-intro">Customs clearance is the gateway between international shipment and your warehouse. Done correctly, it is fast and routine. Done poorly, it triggers holds, penalties, and days of costly delay. In India, the CBIC (Central Board of Indirect Taxes and Customs) and the ICEGATE portal govern the entire process — understanding it end-to-end is non-negotiable for any logistics professional.</div></div>
+      <div class="deep-grid">
+
+        <div class="deep-card"><div class="deep-card-num">Foundation</div><div class="deep-card-title">What is an HS Code? (Harmonised System)</div><div class="deep-card-body">The <strong>HS Code (Harmonised System Code)</strong> is a globally standardised 6-digit (internationally) or 8-digit (India — called ITC-HS) numerical code that classifies every product traded internationally.<br><br><strong>Why it matters:</strong><ul><li>Determines the <strong>customs duty rate</strong> applicable to your goods</li><li>Identifies if the product needs special licenses, permits, or certifications</li><li>Required on Commercial Invoice, Bill of Entry, and all trade documents</li><li>A wrong HS code = wrong duty rate = penalties or refund delays</li></ul><div class="deep-example"><strong>Critical Rule</strong>A difference of just 2 digits in the HS code can mean a 10–15 percentage point difference in duty rate. Always verify your HS code with your CHA (Customs House Agent) before the first shipment — not after.</div></div></div>
+
+        <div class="deep-card"><div class="deep-card-num">Duty Structure</div><div class="deep-card-title">How Import Duty is Calculated in India</div><div class="deep-card-body">India's import duty is not a single rate — it is a <strong>layered calculation</strong>:<br><br>
+          <strong>Step 1: Assessable Value (AV)</strong> = CIF Value (Cost + Insurance + Freight)<br>
+          <strong>Step 2: Basic Customs Duty (BCD)</strong> = AV × BCD rate (varies by HS code)<br>
+          <strong>Step 3: Social Welfare Surcharge (SWS)</strong> = 10% of BCD<br>
+          <strong>Step 4: IGST</strong> = (AV + BCD + SWS) × IGST rate<br>
+          <strong>Total Duty = BCD + SWS + IGST</strong><br><br>
+          <div class="deep-example"><strong>Example</strong>CIF Value ₹10,00,000. BCD 10% = ₹1,00,000. SWS 10% of BCD = ₹10,000. IGST 18% on (10L+1L+0.1L) = ₹1,99,800. Total duty = ₹3,09,800. Landed cost = ₹13,09,800.</div>
+        </div></div>
+
+        <div class="deep-card"><div class="deep-card-num">Import Process</div><div class="deep-card-title">Step-by-Step Import Clearance in India</div><div class="deep-card-body">
+          <strong>Step 1:</strong> Shipping line/airline files <strong>Import General Manifest (IGM)</strong> with Indian Customs — lists all cargo on the vessel/flight<br>
+          <strong>Step 2:</strong> Importer appoints a licensed <strong>CHA (Customs House Agent)</strong> — they file on your behalf<br>
+          <strong>Step 3:</strong> CHA files <strong>Bill of Entry (BoE)</strong> on ICEGATE portal — declaring goods, HS code, value, and duty payable<br>
+          <strong>Step 4:</strong> <strong>Risk Management System (RMS)</strong> assesses the BoE — assigns it to a channel:<ul><li><strong>Green Channel:</strong> Auto-cleared — fastest (hours)</li><li><strong>Yellow Channel:</strong> Document verification only</li><li><strong>Red Channel:</strong> Physical inspection of cargo</li></ul>
+          <strong>Step 5:</strong> Duties paid online via ICEGATE<br>
+          <strong>Step 6:</strong> <strong>Out of Charge (OOC)</strong> — customs releases cargo<br>
+          <strong>Step 7:</strong> Importer takes <strong>Delivery Order (DO)</strong> from shipping line and collects cargo
+        </div></div>
+
+        <div class="deep-card"><div class="deep-card-num">Export Process</div><div class="deep-card-title">Step-by-Step Export Clearance in India</div><div class="deep-card-body">
+          <strong>Step 1:</strong> Exporter registers <strong>IEC (Importer Exporter Code)</strong> from DGFT — mandatory for all exporters<br>
+          <strong>Step 2:</strong> Prepare all export documents — Commercial Invoice, Packing List, Shipping Bill details<br>
+          <strong>Step 3:</strong> CHA files <strong>Shipping Bill</strong> on ICEGATE — India's export declaration document<br>
+          <strong>Step 4:</strong> Factory/warehouse stuffing — goods packed in container, sealed<br>
+          <strong>Step 5:</strong> CHA arranges <strong>Let Export Order (LEO)</strong> from customs — authorisation to load goods on vessel<br>
+          <strong>Step 6:</strong> Goods loaded — <strong>Export General Manifest (EGM)</strong> filed by shipping line<br>
+          <strong>Step 7:</strong> BL issued — exporters can claim <strong>GST refund / drawback</strong> on exported goods<div class="deep-example"><strong>Key Document</strong>The Shipping Bill is India's export equivalent of the Bill of Entry. It is the primary customs document for exports — every export from India must have one.</div>
+        </div></div>
+
+        <div class="deep-card"><div class="deep-card-num">Key Players</div><div class="deep-card-title">Who Does What in Customs Clearance</div><div class="deep-card-body">
+          <strong>CBIC:</strong> Central Board of Indirect Taxes & Customs — the regulatory authority<br>
+          <strong>ICEGATE:</strong> India's customs e-filing portal — all documents filed here<br>
+          <strong>CHA (Customs House Agent):</strong> Licensed professional who files BoE/Shipping Bill on your behalf — your most important logistics partner<br>
+          <strong>Freight Forwarder:</strong> Arranges cargo movement and coordinates with CHA<br>
+          <strong>Shipping Line/Airline:</strong> Issues BL/AWB, files IGM/EGM<br>
+          <strong>DGFT:</strong> Issues IEC, trade licenses, and manages import/export policy<br>
+          <div class="deep-example"><strong>Critical Tip</strong>Your CHA is your customs compliance partner — not just a form-filler. A good CHA catches HS code errors, anticipates inspection risks, and uploads supporting documents proactively on ICEGATE (via e-Sanchit) before customs asks. Choose your CHA carefully.</div>
+        </div></div>
+
+        <div class="deep-card"><div class="deep-card-num">Common Mistakes</div><div class="deep-card-title">Top 5 Reasons Shipments Get Held at Customs</div><div class="deep-card-body">
+          <ol style="margin-left:16px;line-height:1.8;font-size:14px;">
+            <li><strong>Wrong HS Code:</strong> Triggers reassessment, penalty, and delay</li>
+            <li><strong>Invoice-Packing List mismatch:</strong> Any quantity or description difference causes an immediate hold</li>
+            <li><strong>Missing COO for FTA claims:</strong> If you want preferential duty, COO must be presented at time of filing — not after</li>
+            <li><strong>Under-invoicing:</strong> Customs compares your declared value to similar imports — significant variance triggers scrutiny</li>
+            <li><strong>Missing product certifications:</strong> BIS, FSSAI, CDSCO — must be obtained before cargo arrives, not after</li>
+          </ol>
+          <div class="deep-example"><strong>2026 Update</strong>India's RMS is now AI-driven. It learns from your import history. One bad filing can flag your account for enhanced scrutiny for months. Maintain a clean track record — it directly affects your clearance speed.</div>
+        </div></div>
+      </div>
+      <div class="deep-summary"><strong>🎯 Key Takeaway for Your Team</strong>Customs clearance is not a passive process you hand off to your CHA and forget. It is an active compliance function that requires correct HS codes, consistent documentation, proper valuation, and timely filing. In 2026, India's ICEGATE system is AI-powered — it rewards clean filers with Green Channel clearances (hours) and penalises sloppy filers with Red Channel inspections (days). The investment in getting documentation right before the first shipment pays back every time thereafter.</div>
+    </div>
+    <div class="content-pane" id="w3-log-market">
+      <div class="market-hero"><div class="market-hero-label">🌐 Market Pulse · Week 3 · Logistics</div><div class="market-hero-title">India's Customs System Goes Fully AI-Driven in 2026 — What This Means for Importers</div><div class="market-hero-intro">India's ICEGATE and RMS (Risk Management System) have undergone major AI-powered upgrades in 2026. The system now learns from importer behaviour — rewarding clean filers and penalising those with poor documentation history.</div></div>
+      <div class="stat-row">
+        <div class="stat-box"><span class="stat-number">70%+</span><span class="stat-label">of compliant Indian imports now cleared via Green Channel — hours not days — CBIC 2026</span></div>
+        <div class="stat-box"><span class="stat-number">$500</span><span class="stat-label">average direct cost per documentation error — demurrage, storage fees, and amendment charges</span></div>
+        <div class="stat-box"><span class="stat-number">AEO</span><span class="stat-label">Authorised Economic Operator status now gives companies deferred duty payment and priority clearance — fastest growing compliance programme in India 2026</span></div>
+      </div>
+      <div class="market-card"><div class="market-card-label">🌐 Global Insight</div><div class="market-card-title">AI-Powered Customs Risk Management Is Transforming Clearance Speed Globally</div><div class="market-card-body">India's RMS is an AI-driven gatekeeper that learns from past behaviour. If an importer has a history of misdeclaring values or submitting faulty documentation, the RMS continuously flags their shipments for Red Channel (physical inspection). Conversely, a pristine track record trains the RMS to trust your shipments.<br><br>What leading importers are doing differently in 2026:<ul><li>Filing advance Bills of Entry — submitted before vessel arrival to get a head start on assessment</li><li>Uploading supporting technical documents via e-Sanchit proactively — before customs raises queries</li><li>Pursuing AEO (Authorised Economic Operator) certification — which unlocks deferred duty payment and priority Green Channel clearance</li><li>Conducting quarterly HS code audits with their CHA to catch misclassifications before customs does</li></ul></div><div class="source-note">Source: CBIC ICEGATE 2026 · Tarangya Customs Guide 2026 · eximpe.com India Import Guide</div></div>
+      <div class="action-box"><strong>📌 What This Means for Your Team</strong><ul><li>Ask your CHA: "Are we AEO certified?" — If not, understand the eligibility criteria and whether it is worth pursuing.</li><li>For your next import shipment, request your CHA to file an advance Bill of Entry — this can save 1–2 days of clearance time at no additional cost.</li><li>Run a HS code audit on your top 10 imported items. Verify each code independently using ICEGATE's duty calculator — don't rely solely on your supplier's HS code declaration.</li></ul></div>
+    </div>
+  </div><!-- end w3-logistics -->
+
+  <!-- ══ STORE W3 ══ -->
+  <div class="section-panel" id="w3-store">
+    <div class="section-header"><span class="section-icon">🏪</span><h2 class="section-title">Store & Inventory Management</h2></div>
+    <div class="content-tabs">
+      <button class="ctab-btn deep active" onclick="switchContent(this,'w3-store-deep','w3-store-market')"><span class="ctab-icon">📘</span><span>Deep Dive<span class="ctab-sub">Core Knowledge</span></span></button>
+      <button class="ctab-btn market" onclick="switchContent(this,'w3-store-market','w3-store-deep')"><span class="ctab-icon">🌐</span><span>Market Pulse<span class="ctab-sub">Industry Trends</span></span></button>
+    </div>
+    <div class="content-pane active" id="w3-store-deep">
+      <div class="deep-hero"><div class="deep-hero-label">📘 Deep Dive · Week 3 · Store & Inventory</div><div class="deep-hero-title">Dead Stock & Obsolete Inventory — Identify, Prevent & Liquidate</div><div class="deep-hero-intro">Dead stock is inventory that is no longer moving — it sits on your shelves consuming space, tying up working capital, and generating zero return. Every unsold item represents cash flow that could be used elsewhere — that money is locked away in inventory that isn't generating revenue. Understanding how to identify, prevent, and liquidate dead stock is one of the highest-value skills in inventory management.</div></div>
+      <div class="deep-grid">
+
+        <div class="deep-card"><div class="deep-card-num">Definitions</div><div class="deep-card-title">Dead Stock vs Slow-Moving vs Obsolete</div><div class="deep-card-body">These three terms are related but distinct:<br><br><strong>Slow-Moving Inventory:</strong> Moving, but slower than expected. Still has demand — just needs attention. Action: Investigate cause, consider promotion.<br><br><strong>Dead Stock:</strong> Unsold inventory with no current demand. Not moving. Occupies space and capital. Action: Liquidate or repurpose.<br><br><strong>Obsolete Inventory:</strong> A subcategory of dead stock — items that have lost their value or relevance because they are outdated, superseded, or expired. Action: Write off or dispose.<div class="deep-example"><strong>Rule of Thumb</strong>In most manufacturing and MRO environments, any item with zero movement in 180 days should be flagged as slow-moving. Zero movement in 365 days = dead stock. Zero movement in 2+ years with no future use case = obsolete.</div></div></div>
+
+        <div class="deep-card"><div class="deep-card-num">Root Causes</div><div class="deep-card-title">Why Dead Stock Accumulates</div><div class="deep-card-body">Understanding the root cause prevents recurrence:<ul><li><strong>Overstocking:</strong> Ordering more than demand — the most common cause. Often driven by "just in case" thinking or bulk discount temptation.</li><li><strong>Poor demand forecasting:</strong> Ordering based on assumptions rather than actual usage data.</li><li><strong>Product/technology change:</strong> Equipment upgraded, making old spares redundant. New model introduced, old model discontinued.</li><li><strong>Supplier minimum order quantity (MOQ):</strong> Forced to buy more than needed to meet supplier MOQ.</li><li><strong>Specification changes:</strong> Engineering change makes existing stock non-conforming.</li><li><strong>No consumption tracking:</strong> Items stocked with no defined usage point — no one is accountable for consuming them.</li></ul></div></div>
+
+        <div class="deep-card"><div class="deep-card-num">Identification</div><div class="deep-card-title">How to Find Dead Stock in Your Store</div><div class="deep-card-body"><strong>Step 1 — Run a Non-Moving Stock Report:</strong> From your ERP/store system, extract all items with zero consumption in the last 180/365 days.<br><br><strong>Step 2 — Calculate Inventory Turnover Ratio:</strong><br>ITR = Annual Consumption Value ÷ Average Inventory Value<br>Items with ITR below 1 are slow-moving. Items with ITR of 0 are dead stock.<br><br><strong>Step 3 — Physical walk-through:</strong> Dusty bins, items pushed to back rows, items with no bin card movement — these are visual signs of dead stock.<br><br><strong>Step 4 — Age the inventory:</strong> Classify items by time since last movement — 0–90 days, 91–180 days, 181–365 days, 365+ days.<div class="deep-example"><strong>Practical Tip</strong>In many stores, 10–20% of SKUs account for 80–90% of dead stock value. Focus your identification effort on high-value items first — C-class dead stock is important but lower financial priority.</div></div></div>
+
+        <div class="deep-card"><div class="deep-card-num">Prevention</div><div class="deep-card-title">How to Stop Dead Stock from Accumulating</div><div class="deep-card-body"><ul><li><strong>Link procurement to actual usage data</strong> — never order based on gut feel. Check consumption history first.</li><li><strong>Set maximum stock levels</strong> — every item should have a maximum quantity beyond which no further procurement is approved.</li><li><strong>Review before reorder:</strong> Always check current stock + in-transit before raising a new PO.</li><li><strong>Engineering change management:</strong> When a machine is upgraded or decommissioned, immediately flag all associated spares for review.</li><li><strong>Supplier MOQ negotiation:</strong> Push back on MOQs that force overbuying. Request smaller quantities at slightly higher unit price — often the total cost is lower.</li><li><strong>Obsolescence policy:</strong> Define criteria for what constitutes dead stock in your organisation — and what happens to it (review, liquidate, write-off).</li></ul></div></div>
+
+        <div class="deep-card"><div class="deep-card-num">Liquidation Options</div><div class="deep-card-title">What to Do With Dead Stock — 5 Options</div><div class="deep-card-body">Once identified, dead stock must be acted on — not left to age further:<ol style="margin-left:16px;line-height:1.8;font-size:14px;"><li><strong>Return to supplier:</strong> Best outcome. Negotiate a credit note or exchange for usable items. Many suppliers accept returns within a defined period.</li><li><strong>Transfer to another plant/location:</strong> What is dead stock at one site may be actively needed at another. Check sister plants or group companies first.</li><li><strong>Sell at discount:</strong> To contractors, employees, or scrap dealers — recover partial value. Even 20 paise per rupee is better than zero.</li><li><strong>Donate:</strong> To technical institutes, NGOs, or charitable organisations — tax benefit possible, and removes the item cleanly.</li><li><strong>Write off:</strong> Last resort. Formally record the financial loss, get approvals as per your DOA, and physically dispose of the item. Keeps your inventory records accurate.</li></ol></div></div>
+
+        <div class="deep-card"><div class="deep-card-num">Financial Impact</div><div class="deep-card-title">The True Cost of Dead Stock</div><div class="deep-card-body">Most teams only see the purchase cost of dead stock. The true cost is significantly higher:<br><br><strong>1. Carrying cost:</strong> Storage space, insurance, handling — typically 20–30% of inventory value per year<br><strong>2. Opportunity cost:</strong> Capital tied up in dead stock cannot be used for productive procurement<br><strong>3. Write-off loss:</strong> If it reaches obsolescence with no recovery — 100% of purchase cost is lost<br><strong>4. Management time:</strong> Staff time spent counting, tracking, and managing items that generate zero return<div class="deep-example"><strong>Industry Benchmark</strong>Businesses with poor inventory visibility can lose up to 10–15% of annual revenue due to stockouts, overstocking, and human error. Dead stock is a primary driver of this loss.</div></div></div>
+      </div>
+      <div class="deep-summary"><strong>🎯 Key Takeaway for Your Team</strong>Dead stock is not a storage problem — it is a procurement and forecasting problem. The solution starts upstream: better consumption data, stricter approval for new items, maximum stock levels, and engineering change management. For existing dead stock, act fast — the longer it sits, the less value you recover. Run your non-moving stock report this week. Identify your top 10 dead stock items by value. For each one, decide: return, transfer, sell, donate, or write off. That decision-making process is inventory management in practice.</div>
+    </div>
+    <div class="content-pane" id="w3-store-market">
+      <div class="market-hero"><div class="market-hero-label">🌐 Market Pulse · Week 3 · Store & Inventory</div><div class="market-hero-title">Dead Stock Is a Growing Balance Sheet Problem — AI Tools Are Helping Teams Catch It Earlier</div><div class="market-hero-intro">In 2026, inventory obsolescence is no longer just an operational nuisance — it is a financial reporting issue. Auditors, CFOs, and boards are increasingly scrutinising excess and obsolete inventory provisions on balance sheets.</div></div>
+      <div class="stat-row">
+        <div class="stat-box"><span class="stat-number">£102K</span><span class="stat-label">average overstocked goods held by UK manufacturers in 2023 — International Accounting Bulletin</span></div>
+        <div class="stat-box"><span class="stat-number">30%</span><span class="stat-label">reduction in dead stock holding cost achievable with structured classification and disposal policies — Netstock 2025</span></div>
+        <div class="stat-box"><span class="stat-number">43%</span><span class="stat-label">of small businesses still don't track inventory in real time — leaving them blind to dead stock accumulation — GOIS 2026</span></div>
+      </div>
+      <div class="market-card"><div class="market-card-label">🌐 Global Insight</div><div class="market-card-title">Leading Companies Are Using AI-Powered Inventory Ageing Reports to Catch Dead Stock Before It Becomes a Write-Off</div><div class="market-card-body">Organisations can reduce the risk of dead stock by implementing structured, data-driven practices: creating clear product lifecycle and sunset policies, establishing data-driven purchasing policies, and implementing real-time stock tracking with automated alerts for aging inventory, declining turnover, or zero-sales periods — allowing teams to act before products become obsolete.<br><br>What industry leaders are doing in 2026:<ul><li>Setting automated alerts in WMS/ERP for any item with zero movement beyond a defined threshold (90, 180, 365 days)</li><li>Running monthly inventory ageing reports — not annual — to catch slow-movers while they still have some recovery value</li><li>Creating formal inter-plant transfer processes to redistribute surplus stock before writing it off</li><li>Including dead stock ratio as a KPI on monthly store team dashboards — making it visible and accountable</li></ul></div><div class="source-note">Source: Clear Spider Inventory Management 2026 · Netstock Obsolete Inventory Report · GOIS Inventory Best Practices 2026</div></div>
+      <div class="action-box"><strong>📌 What This Means for Your Team</strong><ul><li>This week, run a non-moving stock report from your system for items with zero movement in 180+ days. What is the total value?</li><li>For your top 5 dead stock items by value — initiate action this week: supplier return query, inter-plant transfer check, or formal write-off request.</li><li>Propose adding "Dead Stock Value (₹)" as a standing item on your monthly store review agenda. Visibility creates accountability.</li></ul></div>
+    </div>
+  </div><!-- end w3-store -->
+
+  <!-- ══ BEHAVIOUR W3 ══ -->
+  <div class="section-panel" id="w3-behaviour">
+    <div class="section-header"><span class="section-icon">🧠</span><h2 class="section-title">Behaviour & Interpersonal Skills</h2></div>
+    <div class="content-tabs">
+      <button class="ctab-btn deep active" onclick="switchContent(this,'w3-beh-deep','w3-beh-market')"><span class="ctab-icon">📘</span><span>Deep Dive<span class="ctab-sub">Core Knowledge</span></span></button>
+      <button class="ctab-btn market" onclick="switchContent(this,'w3-beh-market','w3-beh-deep')"><span class="ctab-icon">🌐</span><span>Market Pulse<span class="ctab-sub">Research Insights</span></span></button>
+    </div>
+    <div class="content-pane active" id="w3-beh-deep">
+      <div class="deep-hero"><div class="deep-hero-label">📘 Deep Dive · Week 3 · Behaviour</div><div class="deep-hero-title">Conflict Resolution — The 5 Thomas-Kilmann Styles</div><div class="deep-hero-intro">Conflict is inevitable in any team. The question is not whether conflict will arise — it is how you handle it when it does. The Thomas-Kilmann Conflict Mode Instrument (TKI) identifies five distinct ways people respond to conflict, each appropriate in different situations. Understanding all five — and knowing which to apply when — is one of the most practical leadership skills you can develop.</div></div>
+      <div class="deep-grid">
+        <div class="deep-card"><div class="deep-card-num">Style 01</div><div class="deep-card-title">Competing — "I Win, You Lose"</div><div class="deep-card-body">High assertiveness, low cooperation. You pursue your position firmly without compromise.<br><br><strong>When it is appropriate:</strong><ul><li>Emergency situations requiring quick, decisive action</li><li>Issues involving safety, compliance, or non-negotiable standards</li><li>When you know you are right and the stakes are high</li></ul><strong>When to avoid:</strong> Day-to-day team disagreements, supplier relationships, situations where buy-in matters.<div class="deep-example"><strong>At Work</strong>A supplier is pressuring you to accept a substandard delivery. Competing is the right style — hold your position firmly: "This does not meet our specification. We will not accept it without rework at the supplier's cost."</div></div></div>
+
+        <div class="deep-card"><div class="deep-card-num">Style 02</div><div class="deep-card-title">Collaborating — "Let's Both Win"</div><div class="deep-card-body">High assertiveness, high cooperation. You work with the other party to find a solution that fully satisfies both sides.<br><br><strong>When it is appropriate:</strong><ul><li>Complex issues where both parties' needs genuinely matter</li><li>When you need the other person's full commitment to the outcome</li><li>Team decisions that everyone must implement</li></ul><strong>When to avoid:</strong> Minor issues not worth the time investment; crisis situations requiring fast decisions.<div class="deep-example"><strong>At Work</strong>Two team members disagree on how to set up a new inventory system. Instead of deciding for them, you facilitate a session where both explain their reasoning — the solution they reach together is better than either original idea.</div></div></div>
+
+        <div class="deep-card"><div class="deep-card-num">Style 03</div><div class="deep-card-title">Compromising — "We Both Give a Little"</div><div class="deep-card-body">Moderate assertiveness, moderate cooperation. Each party gives up something to reach a middle ground.<br><br><strong>When it is appropriate:</strong><ul><li>When both parties have equal power and mutually exclusive goals</li><li>Time-limited situations requiring a workable solution quickly</li><li>When collaboration has failed and a partial solution is better than none</li></ul><strong>When to avoid:</strong> When one party is clearly right; when the stakes are too high for a "split the difference" approach.<div class="deep-example"><strong>At Work</strong>You want delivery by the 10th; supplier can only deliver by the 20th. You compromise on the 15th — both parties adjust. Not ideal for either, but workable for both.</div></div></div>
+
+        <div class="deep-card"><div class="deep-card-num">Style 04</div><div class="deep-card-title">Avoiding — "Not Now, Not My Problem"</div><div class="deep-card-body">Low assertiveness, low cooperation. You sidestep or postpone the conflict without resolution.<br><br><strong>When it is appropriate:</strong><ul><li>When the issue is trivial and not worth the energy</li><li>When emotions are too high and a cooling-off period is needed</li><li>When you need more information before engaging</li></ul><strong>When to avoid:</strong> When the issue is important; when avoidance allows the problem to grow; when others are waiting for resolution.<div class="deep-example"><strong>At Work</strong>A colleague makes an irritating comment in a meeting. You choose not to respond in the moment — the issue is minor and the meeting is important. You address it one-on-one later. That is appropriate avoiding, not passive avoidance.</div></div></div>
+
+        <div class="deep-card"><div class="deep-card-num">Style 05</div><div class="deep-card-title">Accommodating — "You Win, I'll Yield"</div><div class="deep-card-body">Low assertiveness, high cooperation. You yield to the other party's position, putting their needs above your own.<br><br><strong>When it is appropriate:</strong><ul><li>When the issue matters more to the other person than to you</li><li>When you realise you are wrong and want to allow a better solution</li><li>When preserving the relationship is more important than winning the point</li></ul><strong>When to avoid:</strong> When you consistently accommodate — you lose credibility, build resentment, and stop advocating for what matters.<div class="deep-example"><strong>At Work</strong>Your team member has strong expertise in logistics routing. You defer to their recommendation even though you have a different instinct — their knowledge in this area is greater than yours. That is appropriate accommodating.</div></div></div>
+
+        <div class="deep-card"><div class="deep-card-num">For Leaders</div><div class="deep-card-title">The Most Common Mistake in Conflict Handling</div><div class="deep-card-body">Most people have one or two default styles they use in almost every conflict — regardless of whether those styles fit the situation.<br><br><strong>Common defaults and their problems:</strong><ul><li>Always Competing → Creates fear, shuts down honest communication</li><li>Always Avoiding → Problems fester, team loses confidence in leader</li><li>Always Accommodating → Leader is not taken seriously, important issues go unresolved</li></ul><strong>The goal:</strong> Situational flexibility — the ability to read a conflict and consciously choose the most appropriate style.<div class="deep-example"><strong>This Week's Practice</strong>Think of a current unresolved conflict or tension in your team or with a supplier. Which of the 5 styles have you been using? Is it the right one for this situation? If not — what style would serve the outcome better?</div></div></div>
+      </div>
+      <div class="deep-summary"><strong>🎯 Key Takeaway for Your Team</strong>There is no universally "best" conflict style — the right style depends entirely on the situation, the stakes, and the relationship. The most effective professionals are those who can flex across all five styles consciously — not those who always compete, always avoid, or always accommodate out of habit. This week's practice: identify your default conflict style, identify one situation where a different style would serve you better, and try it deliberately.</div>
+    </div>
+    <div class="content-pane" id="w3-beh-market">
+      <div class="market-hero"><div class="market-hero-label">🌐 Market Pulse · Week 3 · Behaviour</div><div class="market-hero-title">Workplace Conflict Is Rising — And Most Managers Are Not Equipped to Handle It</div><div class="market-hero-intro">Post-pandemic hybrid work, generational diversity, and high-pressure supply chain environments have made workplace conflict more frequent and more complex. Research shows most managers receive little or no training in conflict resolution — yet it consumes enormous amounts of their time.</div></div>
+      <div class="stat-row">
+        <div class="stat-box"><span class="stat-number">85%</span><span class="stat-label">of employees deal with conflict at work to some degree — CPP Inc Global Human Capital Report</span></div>
+        <div class="stat-box"><span class="stat-number">2.1 hrs</span><span class="stat-label">average time per week employees spend dealing with workplace conflict — costing organisations billions globally</span></div>
+        <div class="stat-box"><span class="stat-number">76%</span><span class="stat-label">of employees say their manager does not handle conflict well — Gallup Workplace Survey 2025</span></div>
+      </div>
+      <div class="market-card"><div class="market-card-label">🌐 Research Insight</div><div class="market-card-title">Unresolved Conflict Is One of the Top Three Causes of Employee Resignation</div><div class="market-card-body">Gallup's 2025 research on employee attrition found that unresolved interpersonal conflict — particularly with direct managers — is consistently cited as one of the top three reasons employees leave. The cost of replacing a single employee ranges from 50–200% of their annual salary when recruitment, onboarding, and productivity loss are factored in.<br><br>What high-performing organisations do differently:<ul><li>Train managers in conflict resolution skills — not just technical skills</li><li>Create structured channels for raising concerns before they escalate (1-on-1s, skip-level meetings, anonymous feedback tools)</li><li>Normalise productive disagreement — "disagree and commit" cultures outperform "agree and resent" cultures</li><li>Address conflict early — research consistently shows that early intervention costs 10× less (in time, energy, and morale) than late escalation</li></ul></div><div class="source-note">Source: CPP Inc Global Human Capital Report · Gallup Workplace Survey 2025 · HBR Conflict Resolution Research</div></div>
+      <div class="quote-block"><p>"The single biggest problem in communication is the illusion that it has taken place."</p><cite>— George Bernard Shaw (the most common cause of workplace conflict is two people assuming they understood each other when they didn't)</cite></div>
+    </div>
+  </div><!-- end w3-behaviour -->
+
+  <!-- ══ AI W3 ══ -->
+  <div class="section-panel" id="w3-ai">
+    <div class="section-header"><span class="section-icon">🤖</span><h2 class="section-title">AI & Market Trends</h2></div>
+    <div class="content-tabs">
+      <button class="ctab-btn deep active" onclick="switchContent(this,'w3-ai-deep','w3-ai-market')"><span class="ctab-icon">📘</span><span>Deep Dive<span class="ctab-sub">Core Knowledge</span></span></button>
+      <button class="ctab-btn market" onclick="switchContent(this,'w3-ai-market','w3-ai-deep')"><span class="ctab-icon">🌐</span><span>Market Pulse<span class="ctab-sub">AI Trends</span></span></button>
+    </div>
+    <div class="content-pane active" id="w3-ai-deep">
+      <div class="deep-hero"><div class="deep-hero-label">📘 Deep Dive · Week 3 · AI</div><div class="deep-hero-title">AI-Powered Procurement — Specific Prompts & Workflows Your Team Can Use This Week</div><div class="deep-hero-intro">This week we move from knowing what AI tools exist to using them for specific procurement, logistics, and inventory tasks. Below are ready-to-use prompts — copy, adapt, and use them directly with Claude or ChatGPT today.</div></div>
+      <div class="deep-grid">
+        <div class="deep-card"><div class="deep-card-num">Prompt 01</div><div class="deep-card-title">Draft a Professional RFQ Email</div><div class="deep-card-body"><strong>Use case:</strong> Requesting quotation from a new supplier for any material or service.<br><br><strong>Ready-to-use prompt:</strong><div class="deep-example"><strong>Copy This</strong>"You are a procurement professional at a manufacturing company in India. Draft a formal RFQ email to a potential new supplier for [describe your material/service]. Include: company introduction, detailed specifications, quantity required, delivery terms (FOB/CIF/DAP), payment terms we prefer (30 days credit), request for sample if applicable, submission deadline, and evaluation criteria. Keep it under 300 words. Professional tone."</div>Replace the brackets with your actual requirement. Review and personalise before sending.</div></div>
+
+        <div class="deep-card"><div class="deep-card-num">Prompt 02</div><div class="deep-card-title">Analyse a Supplier Quote — Find the Gaps</div><div class="deep-card-body"><strong>Use case:</strong> Evaluating a supplier's commercial offer before responding.<br><br><strong>Ready-to-use prompt:</strong><div class="deep-example"><strong>Copy This</strong>"I am reviewing a supplier quote for [describe item]. The quote says: [paste or describe key terms — price, delivery, payment, warranty, lead time, etc.]. Analyse this quote and identify: 1) What important commercial terms are missing? 2) What clauses should I negotiate? 3) What red flags or risks do you see? 4) What questions should I ask before accepting?"</div>AI will identify gaps your team might miss — especially on warranty, penalty clauses, and price validity.</div></div>
+
+        <div class="deep-card"><div class="deep-card-num">Prompt 03</div><div class="deep-card-title">Create a Vendor Comparison Matrix</div><div class="deep-card-body"><strong>Use case:</strong> Comparing multiple supplier quotes on multiple criteria.<br><br><strong>Ready-to-use prompt:</strong><div class="deep-example"><strong>Copy This</strong>"Create a vendor evaluation matrix for 3 suppliers who have quoted for [describe item]. Criteria and weightings: Price (30%), Delivery Timeline (20%), Quality Certification (20%), Payment Terms (15%), Past Experience (10%), Local Service Support (5%). Supplier data: Vendor A — [paste their data]. Vendor B — [paste their data]. Vendor C — [paste their data]. Calculate weighted scores and recommend the best vendor with reasoning."</div>This task takes 30 minutes manually — AI does it in 60 seconds.</div></div>
+
+        <div class="deep-card"><div class="deep-card-num">Prompt 04</div><div class="deep-card-title">Customs & Logistics Query</div><div class="deep-card-body"><strong>Use case:</strong> Quickly understand duty structure or logistics options for a new import.<br><br><strong>Ready-to-use prompt:</strong><div class="deep-example"><strong>Copy This</strong>"I am importing [describe goods] from [country] into India. The HS code is approximately [your best guess — or ask AI to help identify it]. Please explain: 1) What are the typical import duties (BCD, SWS, IGST) for this type of product in India? 2) What documents will I need for customs clearance? 3) Are there any import restrictions, licenses, or certifications required for this product? 4) Which Incoterm should I use for my first shipment?"</div>Always verify duty rates with your CHA — AI gives a strong starting point, not the final answer.</div></div>
+
+        <div class="deep-card"><div class="deep-card-num">Prompt 05</div><div class="deep-card-title">Supplier Escalation or Penalty Letter</div><div class="deep-card-body"><strong>Use case:</strong> Writing a formal letter to a supplier for delayed delivery, quality issue, or contractual breach.<br><br><strong>Ready-to-use prompt:</strong><div class="deep-example"><strong>Copy This</strong>"Draft a formal escalation letter to a supplier for [describe the issue — e.g., delivery delayed by 15 days, quality rejection of a batch, repeated invoicing errors]. Include: specific facts and dates, impact on our operations, reference to the contract clause being violated, our expectation for resolution and timeline, and consequences if not resolved. Professional but firm tone. Company letterhead format."</div>One of the most time-consuming tasks in procurement — done in 2 minutes.</div></div>
+
+        <div class="deep-card"><div class="deep-card-num">Golden Rule</div><div class="deep-card-title">How to Get the Best Results from AI Prompts</div><div class="deep-card-body"><strong>1. Give context:</strong> The more specific your prompt, the better the output. "Draft an RFQ" gives a generic result. "Draft an RFQ for 500 MT of hot-rolled steel coils, Grade IS 2062 E250, from a supplier in Pune, delivery to our Hazira plant on DAP terms within 30 days" gives a professional, usable output.<br><br><strong>2. Iterate:</strong> If the first output isn't right, tell AI what to change: "Make it more formal" / "Add a penalty clause" / "Shorten to 200 words"<br><br><strong>3. Verify:</strong> AI can be wrong on specific regulations, duty rates, or legal clauses. Use AI for first drafts — apply your professional judgement before finalising.<div class="deep-example"><strong>Time Saved This Week</strong>Each prompt above saves 20–45 minutes of manual drafting time. If your team uses 3 prompts per week, that is 1–2 hours saved per person — 5–10 hours across your team — every week.</div></div></div>
+      </div>
+      <div class="deep-summary"><strong>🎯 Key Takeaway for Your Team</strong>AI tools are only as good as the prompts you give them. This week, each team member should pick ONE prompt from above and use it for a real work task. Not a test. A real task — an actual RFQ, an actual quote analysis, an actual supplier letter. Compare the time it took vs manual effort. Share the experience at the next team meeting. That one experiment builds more AI confidence than 10 theoretical discussions.</div>
+    </div>
+    <div class="content-pane" id="w3-ai-market">
+      <div class="market-hero"><div class="market-hero-label">🌐 Market Pulse · Week 3 · AI</div><div class="market-hero-title">Prompt Engineering Is Becoming a Procurement Core Competency in 2026</div><div class="market-hero-intro">The ability to write effective AI prompts — getting AI tools to produce useful, accurate, professional outputs — is rapidly becoming as important as Excel skills were in the 2000s. Organisations that build this capability now will have a measurable productivity advantage.</div></div>
+      <div class="stat-row">
+        <div class="stat-box"><span class="stat-number">49%</span><span class="stat-label">of procurement teams piloted generative AI in 2024 — only 4% reached large-scale deployment (the prompt quality gap)</span></div>
+        <div class="stat-box"><span class="stat-number">40%</span><span class="stat-label">faster contract review time reported by procurement teams using AI-assisted clause analysis — GEP 2026</span></div>
+        <div class="stat-box"><span class="stat-number">2 hrs</span><span class="stat-label">average time saved per week per procurement professional who uses AI for routine drafting tasks — Art of Procurement 2026</span></div>
+      </div>
+      <div class="market-card"><div class="market-card-label">🌐 Global Insight</div><div class="market-card-title">The Gap Between AI Pilots and AI Production Is Prompt Quality</div><div class="market-card-body">The GEP Outlook 2026 found that the single biggest reason AI pilots fail to scale is not technology — it is the quality of how employees interact with the tools. Teams that invest in prompt quality training see dramatically better outputs, higher adoption rates, and measurable productivity gains. Teams that simply give employees access to an AI tool without guidance see low adoption and disappointing results.<br><br>What leading procurement organisations are doing in 2026:<ul><li>Building internal prompt libraries — collections of tested, high-quality prompts for common procurement tasks (RFQs, evaluation matrices, contract summaries, supplier letters)</li><li>Training teams on the Role + Context + Task + Format + Constraints prompt framework</li><li>Appointing "AI Champions" within procurement teams — individuals who develop and share prompts, and coach colleagues on effective usage</li><li>Measuring AI adoption as a team KPI — not just as a suggestion</li></ul></div><div class="source-note">Source: GEP Outlook 2026 · Art of Procurement State of AI 2026 · McKinsey AI Productivity Research</div></div>
+      <div class="action-box"><strong>📌 What This Means for Your Team</strong><ul><li>This week, start a shared document — "TeamPulse Prompt Library." Add the 5 prompts from today's Deep Dive. Each team member adds one more prompt they have found useful. By Week 6, you will have 30+ tested prompts for daily use.</li><li>Identify your team's "AI Champion" — the person most curious about AI. Give them the responsibility of finding and sharing one new AI use case per week.</li><li>Use the prompts in the Deep Dive tab this week for one real task each. Report back at your next team meeting.</li></ul></div>
+    </div>
+  </div><!-- end w3-ai -->
+
+  <!-- ══ MIS W3 ══ -->
+  <div class="section-panel" id="w3-mis">
+    <div class="section-header"><span class="section-icon">📊</span><h2 class="section-title">MIS & Analytics — Process Improvement</h2></div>
+    <div class="content-tabs">
+      <button class="ctab-btn active mis-tab" onclick="switchContent(this,'w3-mis-pulse','')"><span class="ctab-icon">🔍</span><span>Process Improvement Pulse<span class="ctab-sub">Data-Driven Insights · Week 3</span></span></button>
+    </div>
+    <div class="content-pane active" id="w3-mis-pulse">
+      <div class="mis-hero"><div class="mis-hero-label">🔍 MIS & Analytics · Process Improvement · Week 3</div><div class="mis-hero-title">Process Improvement Opportunities — Procurement, Logistics & Store</div><div class="mis-hero-intro">This section draws exclusively from <strong style="color:#c9b8e8;">Procurement, Logistics, and Store & Inventory</strong>. This week's Deep Dives — Contract Types, Customs Clearance, and Dead Stock Management — each generate specific, measurable process improvement opportunities for your team.</div></div>
+
+      <div class="mis-card">
+        <div class="mis-card-label">🛒 From Procurement Data — Week 3</div>
+        <div class="mis-card-title">Contract Type Register as a Procurement Governance KPI</div>
+        <div class="mis-card-body">
+          <strong>What data to collect:</strong> For every active purchase — what contract type is being used? Rate Contract, AMC, Spot Purchase, BOQ, or Turnkey? What % of your total spend is covered under Rate Contracts vs Spot Purchases?<br><br>
+          <strong>Process Improvement Opportunity:</strong> In most organisations, 40–60% of repeat purchases are still being made as Spot Purchases — generating 3× the administrative effort and typically higher unit prices than Rate Contracts. A Contract Type Register reveals exactly how much of your spend is "uncontracted" and therefore unprotected from price volatility and supplier risk.
+          <ul>
+            <li><strong>KPI to track:</strong> % of total procurement spend under Rate Contract or long-term agreement vs Spot Purchase</li>
+            <li><strong>Target:</strong> Move Spot Purchase share below 20% of total spend within 2 quarters for regularly recurring items</li>
+            <li><strong>Tool:</strong> A simple Excel contract register — Item, Supplier, Contract Type, Value, Duration, Renewal Date. Review monthly.</li>
+          </ul>
+        </div>
+        <div class="mis-action-box"><strong>📌 Immediate Action</strong><ul><li>Pull last month's POs. Classify each as Rate Contract, AMC, BOQ, Turnkey, or Spot Purchase. Calculate the % split.</li><li>Identify the top 5 items being bought on Spot Purchase that you buy regularly. These are your immediate Rate Contract opportunities.</li><li>For each of your equipment assets — is there an AMC in place? If not, calculate the cost of unplanned breakdowns vs a Comprehensive AMC. The comparison often justifies the AMC cost.</li></ul></div>
+      </div>
+
+      <div class="mis-card">
+        <div class="mis-card-label">🚚 From Logistics Data — Week 3</div>
+        <div class="mis-card-title">Customs Clearance Time as a Logistics Performance KPI</div>
+        <div class="mis-card-body">
+          <strong>What data to collect:</strong> For each international import shipment in the last quarter — Date of IGM filing, Date of Bill of Entry filing, Date of Out of Charge (OOC), Date of cargo collection. Calculate: clearance time = OOC date minus IGM date.<br><br>
+          <strong>Process Improvement Opportunity:</strong> Most teams track "delivery date" but not "customs clearance time." Clearance time is where controllable delays are hidden — late BoE filing, documentation errors, wrong HS codes, missing certifications. Tracking it exposes where your process is losing days.
+          <ul>
+            <li><strong>KPI to track:</strong> Average customs clearance time (days from IGM to OOC) per shipment · % of shipments clearing via Green Channel vs Red Channel</li>
+            <li><strong>Target:</strong> Average clearance time below 3 working days · Green Channel clearance rate above 80%</li>
+            <li><strong>Tool:</strong> Add IGM date, BoE date, OOC date, and Channel (Green/Yellow/Red) columns to your shipment tracking sheet. Calculate clearance time for each shipment.</li>
+          </ul>
+        </div>
+        <div class="mis-action-box"><strong>📌 Immediate Action</strong><ul><li>Ask your CHA for last quarter's clearance data — specifically: How many shipments went Red Channel? What were the reasons? Each reason is a process failure to fix.</li><li>For every shipment that was delayed at customs in the last 6 months — root cause analysis: was it documentation, HS code, missing certification, or valuation query? Build a simple log.</li><li>Calculate your average clearance time. If it is above 5 working days consistently, schedule a review meeting with your CHA to identify systemic fixes.</li></ul></div>
+      </div>
+
+      <div class="mis-card">
+        <div class="mis-card-label">🏪 From Store Data — Week 3</div>
+        <div class="mis-card-title">Dead Stock Value as a Monthly Store Health KPI</div>
+        <div class="mis-card-body">
+          <strong>What data to collect:</strong> Run a non-moving stock report for items with zero consumption in the last 180 days and 365 days. Record: item description, quantity, unit cost, total value, last movement date, and reason (if known).<br><br>
+          <strong>Process Improvement Opportunity:</strong> Dead stock is invisible in most organisations until an annual audit or a space crisis forces attention. Making dead stock value a monthly visible KPI changes the behaviour — teams begin to feel accountable for items that are ageing. The goal is not zero dead stock (some is inevitable) — it is a declining trend and a defined disposal process.
+          <ul>
+            <li><strong>KPI to track:</strong> Total dead stock value (₹) — items with zero movement in 180+ days · Dead stock as % of total inventory value</li>
+            <li><strong>Target:</strong> Dead stock below 5% of total inventory value · Month-on-month declining trend · Zero items with movement gap exceeding 2 years without a formal review</li>
+            <li><strong>Tool:</strong> Monthly "Inventory Health Report" — ABC classification, dead stock value, slow-moving value, items pending disposal decision. Present at monthly store review.</li>
+          </ul>
+        </div>
+        <div class="mis-action-box"><strong>📌 Immediate Action</strong><ul><li>Run your first non-moving stock report this week. What is the total dead stock value? Share the number with your team — the act of making it visible starts the improvement.</li><li>For your top 10 dead stock items by value, initiate action: supplier return query, inter-plant transfer check, or write-off approval request.</li><li>Propose adding "Dead Stock Value (₹)" as a standing agenda item on your monthly store review. One line. One number. Visible every month.</li></ul></div>
+      </div>
+
+      <div style="background:var(--mis);color:#fff;padding:22px 26px;border-left:5px solid var(--gold);margin-top:8px;">
+        <strong style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px;">🎯 MIS Summary — Week 3 Priority Actions</strong>
+        This week introduces three highly measurable KPIs: Contract Type coverage (what % of your spend is under proper agreements), Customs Clearance Time (how fast and clean your import process is), and Dead Stock Value (how much capital is locked in non-moving inventory). All three are tracking KPIs — they reveal the current state and create the baseline from which improvement is measured. If you are not measuring these today, start this week. The numbers you get in Week 3 become your baseline. The numbers in Week 8 tell you whether your team has improved.
+      </div>
+    </div>
+  </div><!-- end w3-mis -->
+
+</div></div><!-- wrapper, week3 -->
+
 <footer class="page-footer">
   <strong>TeamPulse Knowledge Hub</strong> — Internal Weekly Newsletter · 6 Sections<br>
-  <span>Edition 001 · 30 March – 05 April 2026 · Procurement · Logistics · Store · Behaviour · AI · MIS & Analytics · New edition every Monday</span>
+  <span>Edition 003 · 13 April – 19 April 2026 · Procurement · Logistics · Store · Behaviour · AI · MIS & Analytics · New edition every Monday</span>
 </footer>
 
 <script>
-let activeWeek='week2', activeSection='procurement';
+let activeWeek='week3', activeSection='procurement';
 
 function switchWeek(weekId,btn){
   document.querySelectorAll('.week-view').forEach(w=>w.classList.remove('active'));
